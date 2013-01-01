@@ -1,0 +1,7 @@
+<%= form_for @user, validate: true do |f| %>
+  <%= render 'shared/errors', object: @user %>
+  <%= render('shared/authentication', f: f) if @user.new_record? %>
+  <div class='actions'>
+    <%= f.submit %>
+  </div>
+<% end %>
