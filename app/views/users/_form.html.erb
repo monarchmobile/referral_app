@@ -1,6 +1,31 @@
 <%= form_for @user, validate: true do |f| %>
   <%= render 'shared/errors', object: @user %>
   <%= render('shared/authentication', f: f) if @user.new_record? %>
+
+  <div class="field">
+  	<%= f.label :company %>
+  	<%= f.text_field :company %>
+  </div>
+  <div class="field">
+	  <%= f.label :biz_type, "Please choose a business category" %> <br />
+	  <%= f.collection_select :biz_type_id, BizType.find(:all), :id, :category, :prompt => "Please choose a business category" %><%= required_field %>
+  </div>
+
+  <div class="field">
+  	<%= f.label :website %>
+  	<%= f.text_field :website %>
+  </div>
+
+  <%= f.fields_for :social_networks do |builder| %>
+  	<%= render 'social_network_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add network", f, :social_networks %>
+
+  <%= f.fields_for :affiliations do |builder| %>
+    <%= render 'affiliation_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add affiliation", f, :affiliations %>
+
   <div class='actions'>
     <%= f.submit %>
   </div>

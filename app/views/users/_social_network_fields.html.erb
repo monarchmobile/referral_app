@@ -1,0 +1,12 @@
+<fieldset>
+	<div class="field">
+		<%= f.label :network_name %><br />
+		<%= f.select( :network_name, User::NETWORKS, { :prompt => true } )%><br />
+		<%= f.hidden_field :_destroy %>
+	  	<%= link_to "remove", "#", class: "remove_fields" %>
+	</div>
+	<div class="field">
+		<%= f.label :acct_name %>
+		<%= f.text_field :acct_name %>
+	</div>
+</fieldset>

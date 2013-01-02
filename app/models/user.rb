@@ -1,6 +1,24 @@
 class User < ActiveRecord::Base
   attr_accessible :admin, :biz_type, :company, :email, :first_name, :last_name, :password_reset_sent_at, :password_reset_token, :website
-  attr_accessible :password, :password_confirmation, :fullname
+  attr_accessible :password, :password_confirmation, :fullname, :biz_type_id, :social_networks_attributes, :affiliations_attributes
+
+  # static arrays found in lib/array.rb
+  include ARRAYS
+
+  # associations
+  belongs_to :biz_type
+  has_many :social_networks
+  has_many :affiliations
+
+  accepts_nested_attributes_for :social_networks, allow_destroy: true
+  accepts_nested_attributes_for :affiliations, allow_destroy: true
+
+  # validations
+  validates :company,
+    :presence => { message: "Can't be blank" }
+  validates :biz_type_id, 
+    :presence => { message: "Category is needed to proceed" }
+
 
   has_secure_password
   validates_presence_of :password, :on => :create

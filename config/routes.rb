@@ -1,4 +1,8 @@
 ReferralApp::Application.routes.draw do
+  resources :biz_types
+
+  resources :social_networks
+
   root to: 'Static_pages#home'
 
 match 'about', to: 'Static_pages#about'

@@ -1,0 +1,25 @@
+<h1>Listing biz_types</h1>
+
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Code</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @biz_types.each do |biz_type| %>
+  <tr>
+    <td><%= biz_type.category %></td>
+    <td><%= biz_type.code %></td>
+    <td><%= link_to 'Show', biz_type %></td>
+    <td><%= link_to 'Edit', edit_biz_type_path(biz_type) %></td>
+    <td><%= link_to 'Destroy', biz_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Biz type', new_biz_type_path %>

@@ -1,0 +1,12 @@
+<fieldset>
+	<div class="field">
+		<%= f.label :aff_name %><br />
+		<%= f.select( :aff_name, User::AFFILIATIONS, { :prompt => true } )%><br />
+		<%= f.hidden_field :_destroy %>
+	  	<%= link_to "remove", "#", class: "remove_fields" %>
+	</div>
+	<div class="field">
+		<%= f.label :chapter %>
+		<%= f.text_field :chapter %>
+	</div>
+</fieldset>

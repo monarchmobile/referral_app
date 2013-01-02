@@ -1,0 +1,2 @@
+module BizTypesHelper
+end
