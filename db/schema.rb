@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130102012007) do
+ActiveRecord::Schema.define(:version => 20130103175037) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "affiliations", :force => true do |t|
     t.string   "aff_name"
@@ -26,6 +37,65 @@ ActiveRecord::Schema.define(:version => 20130102012007) do
     t.integer  "code"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "associate_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "emails", :force => true do |t|
+    t.string   "email"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "emails", ["user_id"], :name => "index_emails_on_user_id"
+
+  create_table "leads", :force => true do |t|
+    t.integer  "referrer_id"
+    t.integer  "referee_id"
+    t.integer  "referral_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "notes", :force => true do |t|
+    t.string   "written_note"
+    t.integer  "referral_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "phone_numbers", :force => true do |t|
+    t.string   "number"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "phone_type"
+  end
+
+  create_table "referrals", :force => true do |t|
+    t.string   "urgency"
+    t.date     "date_submitted"
+    t.boolean  "inside"
+    t.boolean  "card_given"
+    t.string   "preferred_contact"
+    t.text     "comments"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
   end
 
   create_table "social_networks", :force => true do |t|
@@ -51,6 +121,7 @@ ActiveRecord::Schema.define(:version => 20130102012007) do
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
     t.integer  "biz_type_id"
+    t.boolean  "guest"
   end
 
 end

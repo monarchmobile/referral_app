@@ -1,5 +1,5 @@
 class SocialNetwork < ActiveRecord::Base
-  attr_accessible :acct_name, :network_name, :user_id
+  attr_accessible :acct_name, :network_name
 
   belongs_to :user
 end

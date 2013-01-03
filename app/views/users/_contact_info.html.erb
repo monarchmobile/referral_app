@@ -1,0 +1,38 @@
+<div class="contact_info">
+  <ul>
+    <%= content_tag :li, contact.fullname %>
+    <% if contact.affiliations.count > 0 %>
+      <% contact.affiliations.each do |a| %>
+        <%= content_tag :h3, "affiliations" %>
+        <%= content_tag :li, a.aff_name %>
+        <%= content_tag :li, a.chapter %>
+      <% end %>
+    <% end %>
+
+    <%= content_tag :h3, "contact info" %>
+
+    <% if contact.phone_numbers.count > 0 %>
+      <% contact.phone_numbers.each do |phone| %>
+        <li>phone: <%= phone.number %> <%= phone.phone_type %></li>
+      <% end %>
+    <% end %>
+
+    <% if contact.emails.count > 0 %>
+      <% contact.emails.each do |email| %>
+        <li>email: <%= email.email %></li>
+      <% end %>
+    <% end %>
+
+    <% if contact.addresses.count > 0 %>
+      <% contact.addresses.each do |a| %>
+        <li><%= a.address1 unless a.address1 == "" %></li>
+        <li><%= a.address2 unless a.address2 == "" %></li>
+        <li><%= a.city unless a.city == "" %></li>
+        <li><%= a.state unless a.state == "" %></li>
+        <li><%= a.country unless a.country == "" %></li>
+      <% end %>
+    <% end %>
+
+  </ul>
+  <br class="clear" />
+</div>

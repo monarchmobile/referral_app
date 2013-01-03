@@ -1,7 +1,22 @@
 <%= form_for @user, validate: true do |f| %>
   <%= render 'shared/errors', object: @user %>
+  <% if !@new_contact %>
   <%= render('shared/authentication', f: f) if @user.new_record? %>
+  <% end %>
 
+  <% if @new_contact %>
+    <%= f.hidden_field :guest, value: true %>
+    <p>This user will be added to your contact list </p>
+  <% end %>
+
+  <div class="field"> 
+    <%= f.label :fullname %><%= required_field %><br />
+    <%= f.text_field :fullname %>
+  </div>
+  <div class="field"> 
+    <%= f.label :email %><%= required_field %><br />
+    <%= f.text_field :email %>
+  </div>
   <div class="field">
   	<%= f.label :company %>
   	<%= f.text_field :company %>
@@ -16,16 +31,32 @@
   	<%= f.text_field :website %>
   </div>
 
-  <%= f.fields_for :social_networks do |builder| %>
-  	<%= render 'social_network_fields', f: builder %>
-  <% end %>
-  <%= link_to_add_fields "Add network", f, :social_networks %>
+  <ul class="nested_models">
+    <%= f.fields_for :social_networks do |builder| %>
+    	<%= render 'social_network_fields', f: builder %>
+    <% end %><br />
+    <%= link_to_add_fields "Add network", f, :social_networks %><br />
 
-  <%= f.fields_for :affiliations do |builder| %>
-    <%= render 'affiliation_fields', f: builder %>
-  <% end %>
-  <%= link_to_add_fields "Add affiliation", f, :affiliations %>
+    <%= f.fields_for :affiliations do |builder| %>
+      <%= render 'affiliation_fields', f: builder %>
+    <% end %><br />
+    <%= link_to_add_fields "Add affiliation", f, :affiliations %><br />
 
+    <%= f.fields_for :addresses do |builder| %>
+      <%= render 'address_fields', f: builder %>
+    <% end %><br />
+    <%= link_to_add_fields "Add address", f, :addresses %><br />
+
+    <%= f.fields_for :phone_numbers do |builder| %>
+      <%= render 'phone_number_fields', f: builder %>
+    <% end %><br />
+    <%= link_to_add_fields "Add phone_number", f, :phone_numbers %><br />
+
+    <%= f.fields_for :emails do |builder| %>
+      <%= render 'email_fields', f: builder %>
+    <% end %><br />
+    <%= link_to_add_fields "Add email", f, :emails %><br />
+  </ul>
   <div class='actions'>
     <%= f.submit %>
   </div>

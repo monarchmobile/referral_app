@@ -1,4 +1,4 @@
-module ApplicationHelper
+module ApplicationHelper 
 # ********************** START Stock Methods START ********************
 	def question_for_andrew(text)
 		content_tag(:div, text, class: "andrew")
@@ -17,6 +17,10 @@ module ApplicationHelper
 	def required_field
 		content_tag :span, "**", class: "required_field"
 	end
+
+	def lorem_ipsum
+		"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+	end
 # ###################### END Stock Methods END #######################
 
 # ********************** START User START ********************
@@ -27,7 +31,26 @@ module ApplicationHelper
 	    fields = f.fields_for(association, new_object, child_index: id) do |builder|
 	      render(association.to_s.singularize + "_fields", f: builder)
 	    end
-	    link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
+	    link_to(name, '#', class: "add_fields add_rm_btns", data: {id: id, fields: fields.gsub("\n", "")})
 	end
-# ###################### END User END #######################
+# ###################### END Referral END #######################
+	
+
+	def sent_or_received(referral, user)
+		if referral.referrer.id == user.id
+			"sent"
+		elsif referral.referee.id == user.id 
+			"received"
+		end
+	end
+
+	def there_are_referrals(list)
+		list.count > 0
+	end
+
+	def no_referrals_message
+	    content_tag :div, "You have no received referrals at this time", class: "no_referrals"
+	end
+####################### END Referral END ################
+
 end

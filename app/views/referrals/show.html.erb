@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Urgency:</b>
+  <%= @referral.urgency %>
+</p>
+
+<p>
+  <b>Date submitted:</b>
+  <%= @referral.date_submitted %>
+</p>
+
+<p>
+  <b>Inside:</b>
+  <%= @referral.inside %>
+</p>
+
+<p>
+  <b>Card given:</b>
+  <%= @referral.card_given %>
+</p>
+
+<p>
+  <b>Preferred contact:</b>
+  <%= @referral.preferred_contact %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @referral.comments %>
+</p>
+
+
+<%= link_to 'Edit', edit_referral_path(@referral) %> |
+<%= link_to 'Back', referrals_path %>

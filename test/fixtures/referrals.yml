@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  urgency: MyString
+  string: MyString
+  date_submitted: 2013-01-02
+  inside: false
+  card_given: false
+  preferred_contact: MyString
+  comments: MyText
+
+two:
+  urgency: MyString
+  string: MyString
+  date_submitted: 2013-01-02
+  inside: false
+  card_given: false
+  preferred_contact: MyString
+  comments: MyText

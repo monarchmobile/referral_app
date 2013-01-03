@@ -1,0 +1,25 @@
+<%= form_for(@referral) do |f| %>
+  <%= render 'shared/errors', object: @referral %>
+  <%= hidden_field_tag :referee_id, @referee_id %>
+
+  <%= render 'contact_info', f: f %>
+  <div class="field">
+    <%= f.label :urgency %><br />
+    <%= f.select(:urgency, User::URGENCY, { prompt: true } )%>
+  </div>
+  <div class="field">
+    <%= f.label :card_given %><br />
+    <%= f.select :card_given, [["no", 0], ["yes", 1] ] %>
+  </div>
+  <div class="field">
+    <%= f.label :preferred_contact, "Preferred method of contact" %><br />
+    <%= f.select :preferred_contact, [["Call", 1 ],["Email", 2 ]] %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br />
+    <%= f.text_area :comments %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,27 +1,25 @@
 ReferralApp::Application.routes.draw do
+
+  resources :referrals
+
   resources :biz_types
-
   resources :social_networks
+  resources :addresses
+  resources :phone_numbers
+  resources :leads
+  resources :contacts
 
-  root to: 'Static_pages#home'
-
-match 'about', to: 'Static_pages#about'
-match 'profile', to: 'Static_pages#profile'
-match 'home', to: 'Static_pages#home'
+  match 'about', to: 'Static_pages#about'
+  match 'profile', to: 'Static_pages#profile'
+  match 'home', to: 'Static_pages#home'
   
-
-  
-
-  get "static_pages/home"
-
-  get "static_pages/profile"
-
-  get "static_pages/about"
-
   match 'signup', to: 'Users#new'
   match 'logout', to: 'sessions#destroy'
   match 'login', to: 'sessions#new'
-resources :users
+
+  resources :users
   resources :sessions
   resources :password_resets
+
+  root to: 'Static_pages#home'
 end

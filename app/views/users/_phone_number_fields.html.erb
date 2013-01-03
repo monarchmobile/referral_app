@@ -1,0 +1,12 @@
+<li>
+	<div class="field">
+		<%= f.label :phone_type %><br />
+		<%= f.select( :phone_type, User::TYPES, { :prompt => true } )%>
+	</div>
+	<div class="field">
+		<%= f.label :number %>
+		<%= f.text_field :number %>
+		<%= f.hidden_field :_destroy %>
+	  	<%= link_to "remove", "#", class: "remove_fields add_rm_btns" %>
+	</div>
+</li>

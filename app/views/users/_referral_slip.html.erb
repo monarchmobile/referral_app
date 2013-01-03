@@ -1,0 +1,17 @@
+<div class="referral_slip">
+  <ul>
+    <%= content_tag :h2, "Referral Slip" %>
+    <%= content_tag :li, "Date #{sent_or_received(r, current_user)}: #{r.created_at.strftime("%B %d, %Y")}" %>
+    <%= content_tag :li, "From: #{r.referrer.fullname}" %>
+    <%= content_tag :li, "To: #{r.referee.fullname}" %>
+    <%= content_tag :li, "Address: #{r.address1}" %>
+    <%= content_tag :li, "Address: #{r.address2}" unless r.address2 == "" %>
+    <%= content_tag :li, "Address: #{r.city}" %>
+    <%= content_tag :li, "Address: #{r.state}" %>
+    <%= content_tag :li, "Telephone: #{r.phone1}" %>
+    <%= content_tag :li, "Telephone: #{r.phone2}" unless r.phone2 == "" %>
+    <li>Email: <%= mail_to r.email, r.email %></li>
+    <%= content_tag :li, "Comments: #{r.comments}" %>
+  </ul> 
+  <br class="clear" />
+</div>
