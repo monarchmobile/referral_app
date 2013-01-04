@@ -33,5 +33,15 @@ jQuery ->
 	), ->
 		$(this).parent().parent().next(".contact_info").hide()
 
+	# not working 
+	$(".close.btn").click ->
+		$(".new_note_form").hide()
+
+	$(".view_notes").toggle (->
+		# $(this).parent().parent().parent().parent().parent().next().next().show()
+		$(this).closest(".dash_instance").children().last().show()
+	), ->
+		$(this).closest(".dash_instance").children().last().hide()
+
 
 

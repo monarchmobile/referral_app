@@ -1,0 +1,8 @@
+<div class="view_note_container">
+	<ul>
+		<% r.notes.each do |note| %>
+			<%= content_tag :li, note.written_note %>
+		<% end %>
+	</ul>
+
+</div>

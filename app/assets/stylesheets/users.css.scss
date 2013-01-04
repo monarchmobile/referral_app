@@ -71,6 +71,7 @@ ul.dash_attribute {
     float:left;
     list-style:none;
     overflow: hidden;
+    margin-left:5px;
   }
   li.project {
     cursor:pointer;
@@ -88,6 +89,43 @@ ul.dash_instance {
     padding-top:6px;
 
   }
+}
+
+li.notes  {
+
+  width:50px;
+
+  ul  {
+    padding:0px;
+    li {
+      width:20px;
+      float:left;
+      cursor:pointer;
+      text-decoration: underline;
+      &:hover {
+        color:blue;
+      }
+    }
+  }
+}
+
+.new_note_container {
+  
+
+}
+
+.new_note_form {
+  .-moz-box-shadow:    0px 0px 5px #ccc;
+  -webkit-box-shadow: 0px 0px 5px #ccc;
+  box-shadow:         0px 0px 5px #ccc;
+  border-radius: 5px;
+  webkit-border-radius: 5px;
+  moz-border-radius: 5px;
+  position: absolute;
+  left:500px;
+  top:100px;
+  background:gray;
+  padding:15px;
 }
 
 .dashboard {
@@ -149,6 +187,34 @@ ul.dash_instance {
     text-align: center;
     color: #3b5998;
   }
+
+  ul {
+    padding:5px;
+    li {
+      min-height:20px;
+      height: auto;
+    }
+  }
+}
+
+.view_note_container {
+  height: auto;
+  width: 250px;
+  background: #fff;
+  padding:5px;
+  -moz-box-shadow:    0px 0px 5px #ccc;
+  -webkit-box-shadow: 0px 0px 5px #ccc;
+  box-shadow:         0px 0px 5px #ccc;
+  position:absolute;
+  float:left;
+  margin-top:-100px;
+  left:500px;
+  z-index:100;
+  display:none;
+  border-radius: 6px;
+  webkit-border-radius: 6px;
+  moz-border-radius: 6px;
+  border:2px solid gray;
 
   ul {
     padding:5px;
@@ -229,7 +295,7 @@ ul.contact_list_member {
 
 
 .narrow {
-  width:25px;
+  width:50px;
 }
 
 .normal {

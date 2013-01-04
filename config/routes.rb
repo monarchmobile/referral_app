@@ -1,7 +1,7 @@
 ReferralApp::Application.routes.draw do
 
   resources :referrals
-
+  resources :notes
   resources :biz_types
   resources :social_networks
   resources :addresses

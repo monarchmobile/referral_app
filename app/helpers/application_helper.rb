@@ -48,9 +48,10 @@ module ApplicationHelper
 		list.count > 0
 	end
 
-	def no_referrals_message
-	    content_tag :div, "You have no received referrals at this time", class: "no_referrals"
+	def no_referrals_message(delivery)
+	    content_tag :div, "You have no #{delivery} referrals at this time", class: "no_referrals"
 	end
+
 ####################### END Referral END ################
 
 end

@@ -25,11 +25,10 @@
     <h2>Received Referrals</h2>
     <% if there_are_referrals(@received_referrals) %>
     <%= render 'users/dash_header' %>
-      <div class="referrals">
-        
+      <div class="referrals"> 
           <ul class="dash_instance">
             <% @received_referrals.each do |r| %>
-             <li class="<%= cycle('even', 'odd') %>">
+              <li class="<%= cycle('even', 'odd') %>">
                 <ul class="dash_attribute">
                   <%= content_tag :li, r.created_at.strftime("%m/%d/%y"), class: "normal" %>
                   <%= content_tag :li, truncate(r.comments, length: 30), class: "wide project" %>
@@ -37,15 +36,24 @@
                   <%= content_tag :li, r.preferred_contact, class: "normal" %>
                   <%= content_tag :li, "Next Action", class: "normal" %>
                   <%= content_tag :li, "by when", class: "wide" %>
-                  <%= content_tag :li, "pop note box", class: "normal" %>
+                  <li class="normal notes">Notes
+                    <ul>
+                      <%= link_to content_tag(:li, "+", class: "new_note"), new_note_path(referral_id: r.id), remote: true %>
+
+                      <%= link_to content_tag(:li, "V", class: "narrow view_notes"), "#" %>
+                    </ul></li>
                 </ul>
               </li>
               <%= render 'users/referral_slip', r: r %>
+              <%= render 'referrals/view_notes', r: r %>
             <% end %>
           </ul>
+          <%= question_for_andrew("could make the 'next action' and 'by when' editable here for user") %>
       </div>
+      <div class="new_note_container"></div>
+
     <% else %>
-      <%= no_referrals_message %> 
+      <%= no_referrals_message("received") %> 
     <% end %>
 
     <!-- Sent Referrals -->
@@ -63,15 +71,15 @@
                   <%= content_tag :li, r.preferred_contact, class: "normal" %>
                   <%= content_tag :li, "Next Action", class: "normal" %>
                   <%= content_tag :li, "by when", class: "wide" %>
-                  <%= content_tag :li, "pop note box", class: "normal" %>
                 </ul>
               </li>
               <%= render 'users/referral_slip', r: r %>
             <% end %>
+
           </ul>
       </div> 
     <% else %>
-      <%= no_referrals_message %>
+      <%= no_referrals_message("sent") %>
     <% end %>
 </div>
 
