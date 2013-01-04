@@ -1,5 +1,5 @@
 <div class="new_note_form">
-	<%= content_tag :div, "close", class: "close_btn" %>
+	<div class="close_btn" data-page="ajax">close</div>
 	<h2>Notes</h2>
 
 	<%= form_for @note, remote: true do |f| %>

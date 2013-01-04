@@ -34,8 +34,12 @@ jQuery ->
 		$(this).parent().parent().next(".contact_info").hide()
 
 	# not working 
-	$(".close.btn").click ->
-		$(".new_note_form").hide()
+	$(".close_btn").click ->
+		if $(this).attr("data-page") == "on_page"
+			$(this).parent().hide()
+		else if $(this).attr("data-page") == "ajax"
+			$(this).parent().parent(".new_note_container").html("")
+
 
 	$(".view_notes").toggle (->
 		# $(this).parent().parent().parent().parent().parent().next().next().show()

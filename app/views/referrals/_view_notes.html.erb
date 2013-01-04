@@ -1,8 +1,17 @@
 <div class="view_note_container">
+	<div class="close_btn" data-page="on_page">close</div>
 	<ul>
+		<h3>Notes for <%= r.fullname %> project</h3>
+		
 		<% r.notes.each do |note| %>
+		<li>
+		  <ul class="view_note">
+			<%= content_tag :li, note.created_at.strftime("%b %d, %y") %>
 			<%= content_tag :li, note.written_note %>
+		  </ul>
+		</li>
 		<% end %>
+	
 	</ul>
 
 </div>

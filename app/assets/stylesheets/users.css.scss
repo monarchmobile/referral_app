@@ -124,7 +124,7 @@ li.notes  {
   position: absolute;
   left:500px;
   top:100px;
-  background:gray;
+  background:#D8D1D1;
   padding:15px;
 }
 
@@ -199,7 +199,7 @@ li.notes  {
 
 .view_note_container {
   height: auto;
-  width: 250px;
+  width: 300px;
   background: #fff;
   padding:5px;
   -moz-box-shadow:    0px 0px 5px #ccc;
@@ -218,11 +218,35 @@ li.notes  {
 
   ul {
     padding:5px;
+
     li {
       min-height:20px;
+      width:100px;
       height: auto;
     }
+
   }
+}
+
+ul.view_note {
+  height: 30px;
+  width:280px;
+  padding:5px;
+
+  li {
+    min-height: 30px;
+    margin-left:10px;
+    height: auto;
+    list-style: none;
+    float:left;
+  }
+
+  li:first-child {
+    width:75px;
+    color:#3b5998;
+  }
+
+
 }
 
 .referrals {
