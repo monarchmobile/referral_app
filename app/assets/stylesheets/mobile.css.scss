@@ -1,0 +1,183 @@
+#dashboard {
+  width:300px;
+  border:2px solid gold;
+  
+  height:auto;
+
+  
+}
+
+.full {
+
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+  padding-top: 13px;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  cursor:pointer;
+  min-height: 40px;
+  height:auto;
+
+}
+
+.header {
+  background:black;
+
+  ul {
+    margin:0px;
+    padding:0px;
+
+    a li {
+      width:50%;
+      float:left;
+      list-style: none;
+      padding-top:7px;
+      color:white;
+    }
+  }
+}
+
+.menu_items {
+  margin-top:30px;
+
+  h2 {
+    
+    background: #3b5998;
+  }
+  .section {
+    background:gray;
+  }
+}
+
+.network_action_btns {
+    
+    background:black;
+    margin-top:20px;
+ 
+    a .actions {
+      float: left;
+      width: 50%;
+      height: 37px;
+      margin-top: -13px;
+      padding-top: 16px;
+      text-align: center;
+      color: #fff;
+      cursor: pointer;
+      font-size: 12px;
+
+      &:hover {
+        background:gray;
+      }
+    }
+}
+
+.contact_list_member {
+  border-bottom:2px solid #fff;
+}
+.odd {
+  background:gray;
+}
+
+.even {
+  background: rgb(216, 216, 216);
+color: black;
+}
+
+// container for image, [name, phone, email]
+ul.contact_profile {
+  width: 100%;
+height: 75px;
+margin: 0px;
+padding-top: 10px;
+padding-bottom: 0px;
+margin-bottom: 5px;
+  li {
+    float:left;
+    height:75px;
+    width:60%;
+    list-style: none;
+
+     
+  }
+
+  img {
+    float:left;
+    margin-left:-20px;
+    box-shadow: 0px 0px 5px gray;
+    margin-top:5px;
+  }
+}
+
+// container for name phone email
+ul.contact_info {
+    min-height: 50px;
+    width: 204px;
+    margin: 0px;
+    margin-left: -25px;
+    height: auto;
+
+    a, a li, li {
+      float: none;
+      width: 200px;
+      margin: 0px;
+      padding: 0px;
+      height: 23px;
+      text-align:left;
+      display: block;
+      
+    }
+
+    a:hover, a li:hover {
+      background:none;
+      color:#fff;
+    }
+
+}
+
+ul.address_info {
+    min-height: 50px;
+    width: 204px;
+    margin: 0px;
+    margin-left: -25px;
+    height: auto;
+
+    li {
+      float: none;
+width: 200px;
+margin: 0px;
+margin-left:67px;
+padding: 2px;
+height: 18px;
+text-align: left;
+display: block;
+color:black;
+      
+    }
+
+    
+}
+
+.contact_page {
+  background: #fff;
+  min-height: 200px;
+  padding-top: 10px;
+
+  .info_container {
+    background:gray;
+  }
+}
+
+.add_a_contact {
+  height: 31px;
+  padding-top: 8px;
+  margin-top: -13px;
+  text-decoration: none;
+  width:100%;
+  
+  &:hover {
+    text-decoration: underline;
+    color:gray;
+  }
+
+}

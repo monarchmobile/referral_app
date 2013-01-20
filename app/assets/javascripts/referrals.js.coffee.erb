@@ -1,0 +1,29 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+jQuery ->
+
+
+	$('select#lead_referee_id').change ->
+	  chosen_user_id = $(this).val()
+	  URL = "/users/"+chosen_user_id+"/pass_referee_to_form"
+	  
+	  $.ajax
+	  	url: URL
+	  	type: "get"
+
+	$('select#lead_target_id').change ->
+	  chosen_user_id = $(this).val()
+	  URL = "/users/"+chosen_user_id+"/pass_target_to_form"
+	  
+	  $.ajax
+	  	url: URL
+	  	type: "get"
+
+	$(".range").click ->
+		range = $(this).attr("data-range")
+		$("#referral_urgency").val(range)
+	  	
+
+
+

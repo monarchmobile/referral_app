@@ -34,7 +34,13 @@ module ApplicationHelper
 	    link_to(name, '#', class: "add_fields add_rm_btns", data: {id: id, fields: fields.gsub("\n", "")})
 	end
 # ###################### END Referral END #######################
-	
+	def user_name_if_given(user)
+		if user
+			user.fullname
+		else
+			""
+		end
+	end
 
 	def sent_or_received(referral, user)
 		if referral.referrer.id == user.id

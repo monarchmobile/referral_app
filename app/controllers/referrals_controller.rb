@@ -25,7 +25,13 @@ class ReferralsController < ApplicationController
   # GET /referrals/new.json
   def new
     @referral = Referral.new
-    @referee_id = params[:referee_id]
+    if params[:referee_id]
+      @referee_id = params[:referee_id] 
+      @referee = User.find(@referee_id)
+    elsif params[:target_id]
+      @target_id = params[:target_id] 
+      @target = User.find(@target_id) 
+    end
 
     respond_to do |format|
       format.html # new.html.erb

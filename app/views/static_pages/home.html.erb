@@ -1,2 +1,44 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+
+  <!-- sign up / sign in menu bar  -->
+  
+
+  <!-- task management dashboard if signed in -->
+  <div class="menu_items">
+    <h2 class="full">Today</h2>
+    <div class="section full">
+      blah blah blah balah
+    </div>
+    <h2 class="full">This Week</h2>
+    <div class="section full">
+      blah blah blah balah
+    </div>
+    <h2 class="full">This Month</h2>
+    <div class="section full">
+      blah blah blah balah
+    </div>
+    <h2 class="full">This Year</h2>
+    <div class="section full">
+      blah blah blah balah
+    </div>
+    <h2 class="full">Contacts</h2>
+    <div class="section full">
+      <%= render'shared/add_a_contact' %>
+      <% @user.associates.each do |contact| %>
+          <div class="<%= cycle('odd', 'even') %> contact_list_member">
+            <%= render'shared/contact_info', contact: contact %>
+          </div>
+
+        <!-- contact info container-->
+         
+      <% end %>
+      <br class="clear"/>
+
+    </div>
+    <h2 class="full">History</h2>
+    <div class="section full">
+      blah blah blah balah
+    </div>
+  </div>
+  <%= render'shared/referral_links' %>
+  
+

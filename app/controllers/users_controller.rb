@@ -85,6 +85,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def pass_referee_to_form
+    @user = User.find(params[:id])
+    
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def pass_target_to_form
+    @user = User.find(params[:id])
+    
+    respond_to do |format|
+      format.js
+    end
+  end
+
   protected
     def find_user
      @user = User.find(params[:id])

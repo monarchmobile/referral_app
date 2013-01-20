@@ -23,6 +23,7 @@ pre {
 
 a {
   color: #000;
+  text-decoration: none;
   &:visited {
     color: #666;
   }
@@ -89,6 +90,19 @@ div {
   border: solid 2px #666;
   &:first-letter { text-transform: uppercase };
 } 
+
+.andrew {
+    padding:15px;
+    color:#E97272;
+    -moz-box-shadow:    0px 0px 5px #3C4458;;
+    -webkit-box-shadow: 0px 0px 5px #3C4458;;
+    box-shadow:         0px 0px 5px #3C4458;;
+    width:300px;
+    
+    margin-top:5px;
+    background:#F38C8C;
+    color:white;
+}
 
 
 

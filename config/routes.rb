@@ -8,6 +8,8 @@ ReferralApp::Application.routes.draw do
   resources :phone_numbers
   resources :leads
   resources :contacts
+  match "users/:id/pass_referee_to_form", to: "users#pass_referee_to_form"
+  match "users/:id/pass_target_to_form", to: "users#pass_target_to_form"
 
   match 'about', to: 'Static_pages#about'
   match 'profile', to: 'Static_pages#profile'

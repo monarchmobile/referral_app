@@ -6,6 +6,7 @@ class Referral < ActiveRecord::Base
   has_one :lead
   has_one :referrer, through: :lead
   has_one :referee, through: :lead
+  has_one :target_id, through: :lead
 
   has_many :notes
   # has_many :users, :through => :leads

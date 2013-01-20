@@ -1,0 +1,4 @@
+<div class="network_action_btns full">
+    <%= link_to content_tag(:div, "Refer business", class: "actions"), new_referral_path(:referee_id => @user.id) %>
+    <%= link_to content_tag(:div, "Make recommendation", class: "actions"), new_referral_path(:target_id => @user.id) %>
+</div>

@@ -3,6 +3,7 @@ class Lead < ActiveRecord::Base
 
   belongs_to :referrer, :class_name => "User", :foreign_key => "referrer_id"
   belongs_to :referee, :class_name => "User", :foreign_key => "referee_id"
+  belongs_to :target, :class_name => "User", :foreign_key => "target_id"
   # belongs_to :user
   belongs_to :referral
 end

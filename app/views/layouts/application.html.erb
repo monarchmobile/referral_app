@@ -6,9 +6,12 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body><%= render 'shared/header' %>
-
-<%= yield %>
+<body>
+	<div id="dashboard"> 
+		<%= render 'shared/header' %>
+		<%= yield %>
+		
+	</div>
 
 </body>
 </html>

@@ -1,4 +1,5 @@
 <div class="referral_slip">
+  <div class="close_btn" data-page="on_page">close</div>
   <ul>
     <%= content_tag :h2, "Referral Slip" %>
     <%= content_tag :li, "Date #{sent_or_received(r, current_user)}: #{r.created_at.strftime("%B %d, %Y")}" %>

@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ActiveRecord::Base 
   attr_accessible :admin, :biz_type, :company, :email, :first_name, :last_name, :password_reset_sent_at, :password_reset_token, :website, :guest
   attr_accessible :password, :password_confirmation, :fullname, :biz_type_id
   attr_accessible :social_networks_attributes, :affiliations_attributes, :addresses_attributes, :phone_numbers_attributes, :emails_attributes
@@ -29,8 +29,8 @@ class User < ActiveRecord::Base
   has_many :received_leads, :class_name => "Lead", :foreign_key => "referee_id"
   has_many :received_referrals, :through => :received_leads, :foreign_key => "referral_id", :source => :referral,:dependent => :destroy
 
-  # has_many :leads, foreign_key: "referrer_id"
-  # has_many :referrals, :through => :leads
+  has_many :received_recommendations, :class_name => "Lead", :foreign_key => "target_id"
+  has_many :target_referrals, :through => :received_recommendations, :foreign_key => "referral_id", :source => :referral,:dependent => :destroy
 
   accepts_nested_attributes_for :social_networks, allow_destroy: true
   accepts_nested_attributes_for :affiliations, allow_destroy: true
@@ -39,6 +39,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :emails, allow_destroy: true
   accepts_nested_attributes_for :sent_leads, :sent_referrals
 
+
+  before_create { generate_token(:auth_token) }
   # validations
   validates :company,
     :presence => { message: "Can't be blank" }
@@ -46,7 +48,8 @@ class User < ActiveRecord::Base
     :presence => { message: "Category is needed to proceed" }
 
   validates_presence_of :password_digest, unless: :guest?
-  before_create { generate_token(:auth_token) }
+  validates_confirmation_of :password
+  
 
   # override has_secure_password to customize validation until Rails 4.
   require 'bcrypt'

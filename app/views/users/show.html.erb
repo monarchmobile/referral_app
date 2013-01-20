@@ -1,106 +1,16 @@
-<p id="notice"><%= notice %></p>
+  <!-- profile page -->
+  <%= render'shared/notifications' %>
+  <div class="contact_page">
+    
 
-<div class="profile_container">
-    <ul>       
-        <li>Name: <%= best_in_place_if current_user, @user, :fullname %></li>
-        <li>Email: <%= best_in_place_if current_user, @user, :email %> </li>
-        <li>Biz Category: <%= best_in_place_if current_user, @user.biz_type, :category %> </li>
-        <li>Website: <%= best_in_place_if current_user, @user, :website %> </li>
-        <li>Company: <%= best_in_place_if current_user, @user, :company %> </li>
-        
-        <% if @user.admin? %>
-          <li>Admin Priviledges</li>
-        <% end %>
-        
-        <% if current_users_page?(@user) || current_user.admin? %> 
-          <li><%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'Back', users_path %></li>  
-        <% end %>
-        <%= link_to "add a contact", new_user_path(guest: true) %><br />
-        <%= link_to "Refer Business to #{@user.fullname}", new_referral_path(referee_id: @user.id) unless current_users_page?(@user) %>
-    </ul>    
-</div>
+    <div class="info_container">
+      <%= render'shared/contact_info', contact: @user %>
+      <%= render'shared/contact_address', contact: @user %>
+    </div>
 
-<div class="dashboard">   
-    <!-- Received Referrals -->
-    <h2>Received Referrals</h2>
-    <% if there_are_referrals(@received_referrals) %>
-    <%= render 'users/dash_header' %>
-      <div class="referrals"> 
-          <ul class="dash_instance">
-            <% @received_referrals.each do |r| %>
-              <li class="<%= cycle('even', 'odd') %>">
-                <ul class="dash_attribute">
-                  <%= content_tag :li, r.created_at.strftime("%m/%d/%y"), class: "normal" %>
-                  <%= content_tag :li, truncate(r.comments, length: 30), class: "wide project" %>
-                  <%= content_tag :li, r.urgency, class: "normal" %>
-                  <%= content_tag :li, r.preferred_contact, class: "normal" %>
-                  <%= content_tag :li, "Next Action", class: "normal" %>
-                  <%= content_tag :li, "by when", class: "wide" %>
-                  <li class="normal notes">Notes
-                    <ul>
-                      <%= link_to content_tag(:li, "+", class: "new_note"), new_note_path(referral_id: r.id), remote: true %>
-
-                      <%= link_to content_tag(:li, "V", class: "narrow view_notes"), "#" %>
-                    </ul></li>
-                </ul>
-              </li>
-              <%= render 'users/referral_slip', r: r %>
-              <%= render 'referrals/view_notes', r: r %>
-            <% end %>
-          </ul>
-          <%= question_for_andrew("could make the 'next action' and 'by when' editable here for user") %>
-      </div>
-      <div class="new_note_container"></div>
-
-    <% else %>
-      <%= no_referrals_message("received") %> 
-    <% end %>
-
-    <!-- Sent Referrals -->
-    <h2>Sent Referrals</h2> 
-    <% if there_are_referrals(@sent_referrals) %>
-    <%= render 'users/dash_header' %>
-      <div class="referrals">  
-          <ul class="dash_instance">
-            <% @sent_referrals.each do |r| %>
-             <li class="<%= cycle('even', 'odd') %>">
-                <ul class="dash_attribute">
-                  <%= content_tag :li, r.created_at.strftime("%m/%d/%y"), class: "normal" %>
-                  <%= content_tag :li, truncate(r.comments, length: 30), class: "wide project" %>
-                  <%= content_tag :li, r.urgency, class: "normal" %>
-                  <%= content_tag :li, r.preferred_contact, class: "normal" %>
-                  <%= content_tag :li, "Next Action", class: "normal" %>
-                  <%= content_tag :li, "by when", class: "wide" %>
-                </ul>
-              </li>
-              <%= render 'users/referral_slip', r: r %>
-            <% end %>
-
-          </ul>
-      </div> 
-    <% else %>
-      <%= no_referrals_message("sent") %>
-    <% end %>
-</div>
-
-
-
-<div class="contact_list">
-  <h2>Contacts</h2>
-  <ul> <li>  
-      <% @user.associates.each do |contact| %>
-        
-          <ul class="contact_list_member">
-            <%= link_to content_tag(:li, contact.fullname), user_path(contact) %>
-            <%= link_to content_tag(:li, "show info", class: "show_more"), "#" %>
-          </ul>
-
-        <!-- contact info container-->
-          <%= render 'users/contact_info', contact: contact %>
-      <% end %>
-    </li>
-  </ul>
-
-</div>
+      
+  </div>
+  <%= render'shared/referral_links' %>
+  
 
 
