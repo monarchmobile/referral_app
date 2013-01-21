@@ -1,3 +1,5 @@
+
+
 <div class="warm_up_now_or_later ref_field" >
 	<p> Would you like to warm up the target now?</p>
 	<ul>
@@ -9,21 +11,40 @@
 
 <div class="warm_up_now ref_field" >
 	<ul>
-		<%= content_tag :li, "Call", class: "initiate_warm_up" %>
-		<%= content_tag :li, "Email", class: "initiate_warm_up" %>
-		<%= content_tag :li, "Later", class: "initiate_warm_up" %>
+		<% contact = @referral.target %>
+		<% if contact.phone_numbers.count > 0 %>
+	      <% contact.phone_numbers.each do |phone| %>
+	      	<%= content_tag :li, "#{phone.number} - #{phone.phone_type}", class: "initiate_warm_up" %>
+	        
+	      <% end %>
+	    <% end %>
+	    <% if contact.emails.count > 0 %>
+	      <% contact.emails.each do |email| %>
+	      	<%= content_tag :li, email.email, class: "initiate_warm_up" %>
+	      <% end %>
+	    <% else %>
+	    	<%= content_tag :li, "no email record on file" %>
+	    <% end %>
+		
+		<%= content_tag :li, "warm up later", class: "initiate_warm_up abandon_warm_up" %>
 	</ul>
 
 </div>
 
 
 <div class="warm_up_later ref_field" >
-	<p> Pick a date to contact by</p>
+
+	<p> Pick a date to you would like to warm up your target by.  Or go back to warm up and contact them now</p>
+	<div class="message_helper"></div>
 	<ul>
-		<%= content_tag :li, "Call", class: "postpone_warm_up" %>
-		<%= content_tag :li, "Email", class: "postpone_warm_up" %>
+		<%= form_for @referral, remote: true do |f| %>
+			<%= f.text_field :contact_by %>
+			<%= f.submit "add date" %>
+		<% end %>
+		
+		<%= content_tag :li, "warm up now", class: "postpone_warm_up back_to_warm_up" %>
 	</ul>
+	contact_by :<%= @referral.contact_by %>
 
 </div>
 
-<%= render'shared/referral_links', user: @referral.referee %>

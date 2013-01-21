@@ -70,7 +70,7 @@ class ReferralsController < ApplicationController
     respond_to do |format|
       if @referral.update_attributes(params[:referral])
         format.html { redirect_to @referral, notice: 'Referral was successfully updated.' }
-        format.json { head :no_content }
+        format.js
       else
         format.html { render action: "edit" }
         format.json { render json: @referral.errors, status: :unprocessable_entity }
@@ -98,10 +98,12 @@ class ReferralsController < ApplicationController
     if params[:referee_id]
       @referee_id = params[:referee_id] 
       @referee = User.find(@referee_id)
+      @starts_with = 1
     end
     if params[:target_id]
       @target_id = params[:target_id] 
       @target = User.find(@target_id) 
+      @starts_with = 2
     end
   end
 

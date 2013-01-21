@@ -76,7 +76,7 @@ class UsersController < ApplicationController
 
 
   def destroy
-    find_user
+    find_user 
     @user.destroy
 
     respond_to do |format|
@@ -87,6 +87,8 @@ class UsersController < ApplicationController
 
   def pass_referee_to_form
     @user = User.find(params[:id])
+    @starts_with = params[:starts_with]
+   
     
     respond_to do |format|
       format.js
@@ -95,6 +97,8 @@ class UsersController < ApplicationController
 
   def pass_target_to_form
     @user = User.find(params[:id])
+    @starts_with = params[:starts_with]
+    
     
     respond_to do |format|
       format.js

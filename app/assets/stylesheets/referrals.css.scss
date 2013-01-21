@@ -9,6 +9,13 @@
 	text-align:center;
 }
 
+.highlight {
+	-moz-box-shadow: 0px 0px 5px gray;
+-webkit-box-shadow: 0px 0px 23px gray;
+box-shadow: 0px 0px 22px 1px rgb(59, 122, 152);
+border: 1px solid gold;
+}
+
 .participants {
 	width:100%;
 	height:100px;
@@ -33,29 +40,35 @@
 
 		select#lead_referee_id {
 			position: absolute;
-			margin-left: -10px;
+			margin-left: -2%;
 			top: 240px;
 			float: left;
+			width:135px;
 		}
 
 		select#lead_target_id {
 			position: absolute;
-			margin-left: -10px;
+			margin-left: -3%;
 			top: 240px;
 			float: left;
+			width:135px;
 		}
 	}
 
 	.arrow {
 		width: 12%;
-float: left;
-height: 24px;
-padding: 2px;
-margin-top: 74px;
-	}
+		float: left;
+		height: 24px;
+		padding: 2px;
+		margin-top: 74px;
 
-	
+		img {
+			margin-left:-13%;
+			margin-top:-30px;
+		}
+	}
 }
+
 
 .referral_add_contact {
 	position:absolute;
@@ -390,16 +403,16 @@ margin-top: 74px;
 }
 
 .warm_up_now {
-	height: 100px;
+	height: 140px;
 	width:80%;
 	margin-left:10%;
 	display:none;
 
 	ul li {
-		width: 23%;
-		margin-left: 15%;
+		width: 75%;
+		margin-left: 10%;
 		border: 1px solid gray;
-		float: left;
+		
 		list-style: none;
 		margin-top: 6px;
 		font-size:12px;
@@ -442,8 +455,10 @@ margin-top: 74px;
 
 	ul li:nth-child(3) {
 		background: #9c9c9c;
-		width:158px;
-		margin-top:15px;
+margin-top: 15px;
+margin-left: 29%;
+width: 39%;
+
 		&:hover {
 			background:gray;
 			border:1px solid #9c9c9c;
@@ -457,10 +472,11 @@ margin-top: 74px;
 }
 
 .warm_up_later {
-	height: 100px;
-	width:80%;
-	margin-left:10%;
-	display:none;
+	min-height: 170px;
+height: auto;
+width: 80%;
+margin-left: 10%;
+display: none;
 
 	ul li {
 		width: 23%;
@@ -468,7 +484,7 @@ margin-top: 74px;
 		border: 1px solid gray;
 		float: left;
 		list-style: none;
-		margin-top: 6px;
+		margin-top: 15px;
 		font-size:12px;
 		padding: 10px 5px 0px 5px;
 		height: 27px;
@@ -477,6 +493,10 @@ margin-top: 74px;
 		cursor:pointer;
 		opacity: 1;
 		color:#fff;
+		width: 60%;
+margin-left: 18%;
+background: #3b5998;
+
 
 		&:hover {
 			
@@ -485,36 +505,15 @@ margin-top: 74px;
 			box-shadow:         0px 0px 5px #ccc;
 			color:#fff;
 			opacity:1;
+			background:gray;
+			border:1px solid #3b5998;
 
 		}
 	}
 
-	ul li:nth-child(2) {
-		background: red;
-
-		&:hover {
-			background:gray;
-			border:1px solid red;
-		}
-
-	}
-
-	ul li:nth-child(1) {
-		background: green;
-		&:hover {
-			background:gray;
-			border:1px solid green;
-		}
-	}
-
-	ul li:nth-child(3) {
-		background: #9c9c9c;
-		width:158px;
-		margin-top:15px;
-		&:hover {
-			background:gray;
-			border:1px solid #9c9c9c;
-		}
+	input[type=text] {
+		width:100px;
+		margin-left:17%;
 	}
 
 	.grayed_out {

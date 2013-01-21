@@ -21,6 +21,26 @@ module ApplicationHelper
 	def lorem_ipsum
 		"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 	end
+
+	def primary(starts_with, referee, target)
+		if starts_with == 1
+			@referee_id = referee.id
+		elsif starts_with == 2
+			@target_id = target.id
+		end
+	end
+
+	def highlight(start_with, num)
+		if start_with == num
+			"highlight"
+		else
+			""
+		end
+	end
+
+	def primary_arrow?(starts_with)
+		starts_with == 1
+	end
 # ###################### END Stock Methods END #######################
 
 # ********************** START User START ********************

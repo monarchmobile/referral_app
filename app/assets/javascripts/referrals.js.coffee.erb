@@ -1,24 +1,25 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-jQuery ->
+jQuery -> 
+
+	$.fn.change_participants = ->
+	  $(this).change ->
+		  chosen_user_id = $(this).val()
+		  starts_w = $(this).attr("data-starts")
+		  method = $(this).attr("data-method")
+		  root = $(this).attr("data-root")
+		  URL = root+"users/"+chosen_user_id+"/"+method
+		  $.ajax
+		    url: URL
+		    type: "post"
+		    data: {starts_with: starts_w}
 
 
-	$('select#lead_referee_id').change ->
-	  chosen_user_id = $(this).val()
-	  URL = "/users/"+chosen_user_id+"/pass_referee_to_form"
-	  
-	  $.ajax
-	  	url: URL
-	  	type: "get"
+		 
+	$('select#lead_referee_id').change_participants()
 
-	$('select#lead_target_id').change ->
-	  chosen_user_id = $(this).val()
-	  URL = "/users/"+chosen_user_id+"/pass_target_to_form"
-	  
-	  $.ajax
-	  	url: URL
-	  	type: "get"
+	$('select#lead_target_id').change_participants()
 
 	# function adds value to hidden_field depending on which box is clicked
 	$.fn.choose_field = ->
@@ -35,18 +36,18 @@ jQuery ->
 	$.fn.style_field = ->
 			# $(this).siblings().addClass("grayed_out")
 			# determine attribute
-			new_record = $(this).parent().attr("data-new")
-			
-			column = $(this).attr("data-field")
-			column_value = $(this).attr("data-"+column)
-			$("#referral_"+column).val(column_value)
-			input_value = $("#referral_"+column).val()
-			
-			if new_record == false
-			 	if field == input_value
-			 		$("ul").find("[data-"+attr+"='" + input_value + "']").removeClass("grayed_out");
-			 else
-			 	$("#referral_"+attr).removeClass("grayed_out")
+		new_record = $(this).parent().attr("data-new")
+		
+		column = $(this).attr("data-field")
+		column_value = $(this).attr("data-"+column)
+		$("#referral_"+column).val(column_value)
+		input_value = $("#referral_"+column).val()
+		
+		if new_record == false
+		 	if field == input_value
+		 		$("ul").find("[data-"+attr+"='" + input_value + "']").removeClass("grayed_out");
+		 else
+		 	$("#referral_"+column).removeClass("grayed_out")
 			
 			
 	# referral form choose potential values
@@ -61,6 +62,7 @@ jQuery ->
 
 	$(".warm_up_when").toggle (->
 		time_to_contact = $(this).attr("data-when")
+		$(".warm_up_now_or_later").hide()
 		if (time_to_contact) == "now"
 			$(".warm_up_now").show()
 		else if (time_to_contact) == "later"
@@ -68,7 +70,18 @@ jQuery ->
 	), ->
 		$(".warm_up_now").hide()
 		$(".warm_up_later").hide()
-	
+
+	$(".abandon_warm_up").click ->
+		$(this).closest(".warm_up_now").hide().next().show()
+
+	$(".back_to_warm_up").click ->
+		$(this).closest(".warm_up_later").hide().prev().show()	
+
+	$("#referral_contact_by").datepicker
+		dateFormat: 'yy-mm-dd'
+
+
+
 
 
 

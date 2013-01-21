@@ -1,5 +1,11 @@
+
+if ("<%= @starts_with %>" == 1) {
+	$(".referral_header_msg").html("").html("Sending a referral to <%= @user.fullname %>")
+} else if ( "<%= @starts_with %>" == 2) {
+	$(".referral_header_msg").html("").html("adding a <%= @user.fullname %> as a suggested biz this referral")
+}
+
 $(".name_of_referee").html("<%= @user.fullname %> ")
-$(".referral_header_msg").html("").html("Sending a referral to <%= @user.fullname %>")
-$(".giver").children(".change_contact").hide()
+$(".giver .change_contact").show()
 $("#referee_id").val(<%= @user.id %>)
 

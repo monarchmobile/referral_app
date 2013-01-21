@@ -1,3 +1,4 @@
+
 <div class="new_referral_message full">
   <% if @referee %>
       <% if @referee.id == current_user.id %>
@@ -20,22 +21,26 @@
   <%= render 'shared/errors', object: @referral %>
 
 <div class="participants">
-  <div class="giver participant"> 
+  <div class="giver participant <%= highlight(@starts_with, 1) %>"> 
     <%= image_tag "blank.jpg", size: "50x50" %>
     <%= content_tag(:div, user_name_if_given(@referee), class: "name_of_referee") %>
     <div class="change_contact">
-      <%= select("lead", "referee_id", User.all.collect {|p| [ p.fullname, p.id ] }, {:include_blank => 'change contact'}) %>
+      <%= select("lead", "referee_id", User.all.collect {|p| [ p.fullname, p.id ] }, {:include_blank => 'change contact'}, :"data-starts" => @starts_with, :"data-method" => "pass_referee_to_form", :"data-root" => root_path, :"data-primary" => "") %>
       <div class="referral_add_contact"><%= render'shared/add_a_contact' %></div>
     </div>
+    <%= hidden_field_tag :starts_with, @starts_with %>
     <%= hidden_field_tag :referee_id, @referee_id %>
   </div>
-  <div class="arrow"> - -></div>
-  <div class="receiver participant">
+  <div class="arrow ">
+      <%= image_tag "right_arrow.jpeg", size:"50x50" if primary_arrow?(@starts_with) %>
+      <%= image_tag "left_arrow.png", size:"50x50" if !primary_arrow?(@starts_with)%>
+  </div>
+  <div class="receiver participant <%= highlight(@starts_with, 2) %>">
     <%= image_tag "blank.jpg", size: "50x50" %>
     <%= content_tag(:div, user_name_if_given(@target), class: "name_of_target") %>
     
     <div class="change_contact">
-      <%= select("lead", "target_id", User.all.collect {|p| [ p.fullname, p.id ] }, {:include_blank => 'change contact'}) %>
+      <%= select("lead", "target_id", User.all.collect {|p| [ p.fullname, p.id ] }, {:include_blank => 'change contact'}, :"data-starts" => @starts_with, :"data-method" => "pass_target_to_form", :"data-root" => root_path, :"data-primary" => "") %>
       <div class="referral_add_contact"><%= render'shared/add_a_contact' %></div>
     </div>
     <%= hidden_field_tag :target_id, @target_id %>

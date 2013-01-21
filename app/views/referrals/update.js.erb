@@ -1,0 +1,8 @@
+// warm up page adding contact_by date to referral model
+$(".message_helper").html("<%= @referral.contact_by.strftime('%B %d, %Y') %> has been added to your calendar").show()
+setTimeout(function() {
+	$(".warm_up_later").fadeOut(4000)
+	setTimeout(function() {
+		window.location.href = '/';
+	}, 4000)
+}, 3000);
