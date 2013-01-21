@@ -6,4 +6,13 @@ class UserMailer < ActionMailer::Base
 	  mail :to => user.email, :subject => "Password Reset"
   end
 
+  def send_referral_to_referee(referral)
+  	  @referral = referral
+  	  @referrer = @referral.referrer
+  	  @referee = @referral.referee
+  	  @target = @referral.target
+  	 
+  	  mail :to => @referrer.email, :subject => "This is a referral"
+  end
+
 end

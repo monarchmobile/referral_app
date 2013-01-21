@@ -1,7 +1,7 @@
 <div class="header full">
     <ul>
       <% if current_user %>
-            <%= link_to content_tag(:li, current_user.fullname), user_path(current_user) %>
+            <%= link_to content_tag(:li, current_user.fullname), home_path %>
             <%= link_to content_tag(:li, "Logout"), logout_path %>
           <% else %>
             <%= link_to content_tag(:li, "Sign Up"), signup_path %>

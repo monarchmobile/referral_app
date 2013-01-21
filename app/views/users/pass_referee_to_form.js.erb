@@ -1,4 +1,5 @@
 $(".name_of_referee").html("<%= @user.fullname %> ")
-$(".referral_header_msg").html("").html("You are sending a referral to <%= @user.fullname %>")
+$(".referral_header_msg").html("").html("Sending a referral to <%= @user.fullname %>")
 $(".giver").children(".change_contact").hide()
+$("#referee_id").val(<%= @user.id %>)
 

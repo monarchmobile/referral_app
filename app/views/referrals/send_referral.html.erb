@@ -1,0 +1,29 @@
+<div class="warm_up_now_or_later ref_field" >
+	<p> Would you like to warm up the target now?</p>
+	<ul>
+		<%= content_tag :li, "Now", class: "warm_up_when", :"data-when" => "now" %>
+		<%= content_tag :li, "Later", class: "warm_up_when", :"data-when" => "later"%>
+	</ul>
+
+</div>
+
+<div class="warm_up_now ref_field" >
+	<ul>
+		<%= content_tag :li, "Call", class: "initiate_warm_up" %>
+		<%= content_tag :li, "Email", class: "initiate_warm_up" %>
+		<%= content_tag :li, "Later", class: "initiate_warm_up" %>
+	</ul>
+
+</div>
+
+
+<div class="warm_up_later ref_field" >
+	<p> Pick a date to contact by</p>
+	<ul>
+		<%= content_tag :li, "Call", class: "postpone_warm_up" %>
+		<%= content_tag :li, "Email", class: "postpone_warm_up" %>
+	</ul>
+
+</div>
+
+<%= render'shared/referral_links', user: @referral.referee %>

@@ -23,13 +23,15 @@
     <h2 class="full">Contacts</h2>
     <div class="section full">
       <%= render'shared/add_a_contact' %>
-      <% @user.associates.each do |contact| %>
-          <div class="<%= cycle('odd', 'even') %> contact_list_member">
-            <%= render'shared/contact_info', contact: contact %>
-          </div>
+      <% if current_user %>
+        <% @user.associates.each do |contact| %>
+            <div class="<%= cycle('odd', 'even') %> contact_list_member">
+              <%= render'shared/contact_info', contact: contact %>
+            </div>
 
-        <!-- contact info container-->
-         
+          <!-- contact info container-->
+           
+        <% end %>
       <% end %>
       <br class="clear"/>
 
@@ -39,6 +41,6 @@
       blah blah blah balah
     </div>
   </div>
-  <%= render'shared/referral_links' %>
+  <%= render'shared/referral_links', user: current_user if current_user %>
   
 

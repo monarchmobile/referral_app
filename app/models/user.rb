@@ -87,5 +87,7 @@ class User < ActiveRecord::Base
     new { |u| u.guest = true }
   end
 
+ 
+
 
 end

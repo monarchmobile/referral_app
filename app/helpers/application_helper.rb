@@ -58,6 +58,26 @@ module ApplicationHelper
 	    content_tag :div, "You have no #{delivery} referrals at this time", class: "no_referrals"
 	end
 
+	def referenced_user(user)
+		if user
+			user.id
+		else
+			""
+		end
+		
+	end
+
+	def add_gray_out(field, value)
+		if field == value
+			""
+		else
+			"grayed_out"
+		end
+	end
+
+	
+ 
+
 ####################### END Referral END ################
 
 end

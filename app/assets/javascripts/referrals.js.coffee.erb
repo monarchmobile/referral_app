@@ -20,10 +20,56 @@ jQuery ->
 	  	url: URL
 	  	type: "get"
 
-	$(".range").click ->
-		range = $(this).attr("data-range")
-		$("#referral_urgency").val(range)
-	  	
+	# function adds value to hidden_field depending on which box is clicked
+	$.fn.choose_field = ->
+		$(this).click ->
+			$(this).removeClass("grayed_out")
+			$(this).siblings().addClass("grayed_out")
+
+			# determine attribute
+			column = $(this).attr("data-field")
+			# determine attribute value
+			column_value = $(this).attr("data-"+column)
+			# populate attributes value in hidden_field
+			$("#referral_"+column).val(column_value)
+	$.fn.style_field = ->
+			# $(this).siblings().addClass("grayed_out")
+			# determine attribute
+			new_record = $(this).parent().attr("data-new")
+			
+			column = $(this).attr("data-field")
+			column_value = $(this).attr("data-"+column)
+			$("#referral_"+column).val(column_value)
+			input_value = $("#referral_"+column).val()
+			
+			if new_record == false
+			 	if field == input_value
+			 		$("ul").find("[data-"+attr+"='" + input_value + "']").removeClass("grayed_out");
+			 else
+			 	$("#referral_"+attr).removeClass("grayed_out")
+			
+			
+	# referral form choose potential values
+	$(".urgency").choose_field()
+	$(".card_given").choose_field()
+	$(".preferred_contact").choose_field()
+
+	$(".urgency").style_field()
+	$(".card_given").style_field()
+	$(".preferred_contact").style_field()
+	
+
+	$(".warm_up_when").toggle (->
+		time_to_contact = $(this).attr("data-when")
+		if (time_to_contact) == "now"
+			$(".warm_up_now").show()
+		else if (time_to_contact) == "later"
+			$(".warm_up_later").show()
+	), ->
+		$(".warm_up_now").hide()
+		$(".warm_up_later").hide()
+	
+
 
 
 

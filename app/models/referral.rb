@@ -6,19 +6,28 @@ class Referral < ActiveRecord::Base
   has_one :lead
   has_one :referrer, through: :lead
   has_one :referee, through: :lead
-  has_one :target_id, through: :lead
-
+  has_one :target, through: :lead
   has_many :notes
   # has_many :users, :through => :leads
 
+  # validations
+  # validates :card_given,
+  #   presence: true
+
+  validates :preferred_contact,
+    presence: true
+
+  validates :urgency,
+    presence: true
+
   def fullname 
-	[first_name, last_name].join(' ')
+	 [first_name, last_name].join(' ')
   end
 
   def fullname=(name)
-	split = name.split(' ', 2)
-	self.first_name = split[0]
-	self.last_name = split[1]
+  	split = name.split(' ', 2)
+  	self.first_name = split[0]
+  	self.last_name = split[1]
   end
  
 end

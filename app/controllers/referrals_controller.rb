@@ -25,13 +25,7 @@ class ReferralsController < ApplicationController
   # GET /referrals/new.json
   def new
     @referral = Referral.new
-    if params[:referee_id]
-      @referee_id = params[:referee_id] 
-      @referee = User.find(@referee_id)
-    elsif params[:target_id]
-      @target_id = params[:target_id] 
-      @target = User.find(@target_id) 
-    end
+    lead_params
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,6 +36,11 @@ class ReferralsController < ApplicationController
   # GET /referrals/1/edit
   def edit
     @referral = Referral.find(params[:id])
+    @referee = @referral.referee
+    @referee_id = @referral.referee.id
+    @target = @referral.target
+    @target_id = @referral.target.id
+    lead_params
   end
 
   # POST /referrals
@@ -49,9 +48,11 @@ class ReferralsController < ApplicationController
   def create
     @referral = Referral.new(params[:referral])
     @referee_id = params[:referee_id]
+    @target_id = params[:target_id]
     respond_to do |format|
       if @referral.save
-        create_lead_relationship(@referee_id, @referral)
+        # alert("#{@referee_id} and #{@target_id}")
+        create_lead_relationship(@referee_id, @referral, @target_id)
         format.html { redirect_to @referral, notice: 'Referral was successfully created.' }
         format.json { render json: @referral, status: :created, location: @referral }
       else
@@ -89,7 +90,26 @@ class ReferralsController < ApplicationController
     end
   end
 
-  def create_lead_relationship(referee_id, referral)
-    Lead.create(referrer_id: current_user, referee_id: referee_id, referral_id: referral.id)
+  def create_lead_relationship(referee_id, referral, target_id)
+    Lead.create!(referrer_id: current_user, referee_id: referee_id, referral_id: referral.id, target_id: target_id)
+  end
+
+  def lead_params
+    if params[:referee_id]
+      @referee_id = params[:referee_id] 
+      @referee = User.find(@referee_id)
+    end
+    if params[:target_id]
+      @target_id = params[:target_id] 
+      @target = User.find(@target_id) 
+    end
+  end
+
+
+  def send_referral
+    @referral = Referral.find(params[:id])
+
+    UserMailer.send_referral_to_referee(@referral).deliver
+
   end
 end

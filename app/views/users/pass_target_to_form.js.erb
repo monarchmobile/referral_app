@@ -1,3 +1,4 @@
 $(".name_of_target").html("<%= @user.fullname %> ")
-$(".referral_header_msg").html("").html("You are sending a recommendation to <%= @user.fullname %>")
+$(".referral_header_msg").html("").html("Sending a recommendation to <%= @user.fullname %>")
 $(".receiver .change_contact").show()
+$("#target_id").val(<%= @user.id %>)

@@ -1,35 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="referral_slip">
+  <div class="close_btn" data-page="on_page">close</div>
+  <ul>
+    <%= content_tag :h2, "Referral Slip" %>
+    <%= content_tag :li, "Date #{sent_or_received(@referral, current_user)}: #{@referral.created_at.strftime("%B %d, %Y")}" %>
+    <%= content_tag :li, "From: #{@referral.referrer.fullname}" %>
+    <%= content_tag :li, "To: #{@referral.referee.fullname}" %>
+    <%= content_tag :li, "Target: #{@referral.target.fullname}" %> 
+    <%= content_tag :li, "#{@referral.address1}" if @referral.address1%>
+    <%= content_tag :li, "#{@referral.address2}" if @referral.address2  %>
+    <%= content_tag :li, "#{@referral.city}, #{@referral.state}" if @referral.city %>
+    <%= content_tag :li, "#{@referral.phone1}" if @referral.phone1 %>
+    <%= content_tag :li, "#{@referral.phone2}" if @referral.phone2 %>
+    <li>Email: <%= mail_to @referral.email, @referral.email %></li>
+    <%= content_tag :li, "Comments: #{@referral.comments}" %>
+  </ul> 
+  <br class="clear" />
+</div>
 
-<p>
-  <b>Urgency:</b>
-  <%= @referral.urgency %>
-</p>
+<%= link_to "Edit", edit_referral_path(@referral, ) %>
+<p>Confirm that the info is correct and then submit</p>
+<%= link_to "Send Referral to #{@referral.referee.fullname}", send_referral_path(@referral) %>
 
-<p>
-  <b>Date submitted:</b>
-  <%= @referral.date_submitted %>
-</p>
-
-<p>
-  <b>Inside:</b>
-  <%= @referral.inside %>
-</p>
-
-<p>
-  <b>Card given:</b>
-  <%= @referral.card_given %>
-</p>
-
-<p>
-  <b>Preferred contact:</b>
-  <%= @referral.preferred_contact %>
-</p>
-
-<p>
-  <b>Comments:</b>
-  <%= @referral.comments %>
-</p>
-
-
-<%= link_to 'Edit', edit_referral_path(@referral) %> |
-<%= link_to 'Back', referrals_path %>
+<%= button_to "Send Recommendation to #{@referral.target.fullname}", send_recommendation_path(@referral) %>
