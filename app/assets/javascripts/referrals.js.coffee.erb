@@ -3,24 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery -> 
 
-	# $.fn.change_participants = ->
-	#   $(this).change -> 
-	# 	  chosen_user_id = $(this).val()
-	# 	  starts_w = $(this).attr("data-starts")
-	# 	  method = $(this).attr("data-method")
-	# 	  root = $(this).attr("data-root")
-	# 	  URL = root+"users/"+chosen_user_id+"/"+method
-	# 	  $.ajax
-	# 	    url: URL
-	# 	    type: "post"
-	# 	    data: {starts_with: starts_w}
-
-
-		 
-	# $('select#lead_referee_id').change_participants()
-
-	# $('select#lead_target_id').change_participants()
-
 	$.fn.choose_user = ->
 		$(this).click ->
 			$(this).removeClass("grayed_out")
@@ -36,13 +18,7 @@ jQuery ->
 			# populate attributes value in hidden_field
 			$("#"+column).val(column_value)
 			$(".chosen_"+column).html(user_name)
-			# $(".new_referral_message").html("")
-			# root = $(this).attr("data-root")
-			# URL = root+"users/"+column_value+"/"+method
-			# $.ajax
-			#   url: URL
-			#   type: "post"
-			#   data: {starts_with: starts_w}
+			
 			if column is "referee_id"
 			  if starts_with is "1"
 			    	$(".referral_header_msg").html("").html "Sending a referral to " + user_name
@@ -51,9 +27,6 @@ jQuery ->
 			  if starts_with is "1"
 			    	$(".referral_header_msg").html("").html "adding " + user_name + " as target for this referral"
 			  else $(".referral_header_msg").html("").html "Sending a recommendation to " + user_name  if starts_with is "2"
-
-
-
 
 	$(".participant_box").choose_user()
 

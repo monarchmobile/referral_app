@@ -1,8 +1,6 @@
 <%= form_for @user, validate: true do |f| %>
   <%= render 'shared/errors', object: @user %>
-  <% if !@new_contact %>
-  <%= render('shared/authentication', f: f) if @user.new_record? %>
-  <% end %>
+ 
 
   <% if @new_contact %>
     <%= f.hidden_field :guest, value: true %>
@@ -13,6 +11,11 @@
     <%= f.label :fullname %><%= required_field %><br />
     <%= f.text_field :fullname %>
   </div>
+
+  <% if !@new_contact %>
+    <%= render('shared/authentication', f: f) if @user.new_record? %>
+  <% end %>
+
   <div class="field"> 
     <%= f.label :email %><%= required_field %><br />
     <%= f.text_field :email %>

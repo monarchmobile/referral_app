@@ -70,6 +70,7 @@ module ReferralApp
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config.assets.initialize_on_precompile = false
-  config.autoload_paths += Dir["#{config.root}/lib/**/"]
-  config.action_mailer.default_url_options = { host: ENV["MAILER_HOST"] }  end
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
+    config.action_mailer.default_url_options = { host: ENV["MAILER_HOST"] }  
+  end
 end
