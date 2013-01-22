@@ -106,7 +106,7 @@ class ReferralsController < ApplicationController
       @starts_with = 2
     end
 
-    @users = current_user.associates
+    @users = current_user.associates if current_user
   end
 
 
