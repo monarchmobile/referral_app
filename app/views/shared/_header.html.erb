@@ -13,7 +13,7 @@
     <div class="menu_items hide">
       <h2 class="full">Today</h2>
       <div class="section full">
-        blah blah blah balah
+        <%= render'shared/today' %>
       </div>
       <h2 class="full">This Week</h2>
       <div class="section full">
@@ -29,6 +29,7 @@
       </div>
       <h2 class="full">Contacts</h2>
       <div class="section full">
+        <%= render'shared/search_for_users' %>
         <%= render'shared/add_a_contact' %>
         <% if current_user %>
           <% current_user.associates.each do |contact| %>
