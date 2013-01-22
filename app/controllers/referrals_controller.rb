@@ -105,6 +105,8 @@ class ReferralsController < ApplicationController
       @target = User.find(@target_id) 
       @starts_with = 2
     end
+
+    @users = current_user.associates
   end
 
 

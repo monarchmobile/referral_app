@@ -22,12 +22,15 @@
 
 <div class="participants">
   <div class="giver participant <%= highlight(@starts_with, 1) %>"> 
-    <%= image_tag "blank.jpg", size: "50x50" %>
-    <%= content_tag(:div, user_name_if_given(@referee), class: "name_of_referee") %>
-    <div class="change_contact">
-      <%= select("lead", "referee_id", User.all.collect {|p| [ p.fullname, p.id ] }, {:include_blank => 'change contact'}, :"data-starts" => @starts_with, :"data-method" => "pass_referee_to_form", :"data-root" => root_path, :"data-primary" => "") %>
-      <div class="referral_add_contact"><%= render'shared/add_a_contact' %></div>
-    </div>
+    <p>Choose a referee</p>
+    <% @users.each do |user| %>
+      <div class="participant_box referee_id <%= add_gray_out(@referee_id, user.id) %>" data-referee_id ="<%= user.id %>" data-field="referee_id" data-user_name="<%= user.fullname %>" data-starts="<%= @starts_with %>" data-method="pass_referee_to_form" data-root="<%= root_path %>">
+        <%= image_tag "blank.jpg", size: "50x50" %>
+        <%= content_tag(:div, user.fullname, class: "name_of_referee") %>
+      </div>
+    <% end %>
+    <%= content_tag :p, "", class: "chosen_referee_id" %>
+    
     <%= hidden_field_tag :starts_with, @starts_with %>
     <%= hidden_field_tag :referee_id, @referee_id %>
   </div>
@@ -35,16 +38,19 @@
       <%= image_tag "right_arrow.jpeg", size:"50x50" if primary_arrow?(@starts_with) %>
       <%= image_tag "left_arrow.png", size:"50x50" if !primary_arrow?(@starts_with)%>
   </div>
+
+
   <div class="receiver participant <%= highlight(@starts_with, 2) %>">
-    <%= image_tag "blank.jpg", size: "50x50" %>
-    <%= content_tag(:div, user_name_if_given(@target), class: "name_of_target") %>
-    
-    <div class="change_contact">
-      <%= select("lead", "target_id", User.all.collect {|p| [ p.fullname, p.id ] }, {:include_blank => 'change contact'}, :"data-starts" => @starts_with, :"data-method" => "pass_target_to_form", :"data-root" => root_path, :"data-primary" => "") %>
-      <div class="referral_add_contact"><%= render'shared/add_a_contact' %></div>
-    </div>
-    <%= hidden_field_tag :target_id, @target_id %>
+    <p>Choose a target</p>
+    <% @users.each do |user| %>
+      <div class="participant_box target_id <%= add_gray_out(@target_id, user.id) %>" data-target_id ="<%= user.id %>" data-field="target_id" data-user_name="<%= user.fullname %>" data-starts="<%= @starts_with %>" data-method="pass_target_to_form" data-root="<%= root_path %>">
+        <%= image_tag "blank.jpg", size: "50x50" %>
+        <%= content_tag(:div, user.fullname, class: "name_of_target") %>
+      </div>
+    <% end %>
+    <%= content_tag :p, "", class: "chosen_target_id" %>
   </div>
+  <%= hidden_field_tag :target_id, @target_id %>
   
 
 </div>

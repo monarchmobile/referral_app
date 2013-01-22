@@ -9,3 +9,8 @@ jQuery ->
 	), -> 
 		$(this).next(".section").slideUp(500)
 
+	$(".menu_accordian").toggle (->
+		$(this).next().show()
+	), -> 
+		$(this).next().hide()
+

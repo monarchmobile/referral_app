@@ -34,7 +34,7 @@
 
 <div class="warm_up_later ref_field" >
 
-	<p> Pick a date to you would like to warm up your target by.  Or go back to warm up and contact them now</p>
+	<p> Pick a date to you would like to warm up your target by.  Or click on "warm up now"</p>
 	<div class="message_helper"></div>
 	<ul>
 		<%= form_for @referral, remote: true do |f| %>
@@ -44,7 +44,7 @@
 		
 		<%= content_tag :li, "warm up now", class: "postpone_warm_up back_to_warm_up" %>
 	</ul>
-	contact_by :<%= @referral.contact_by %>
+	
 
 </div>
 

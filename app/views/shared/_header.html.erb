@@ -9,4 +9,43 @@
           <% end %>
 
     </ul>
-  </div>
+    <div class="menu_accordian">Menu</div>
+    <div class="menu_items hide">
+      <h2 class="full">Today</h2>
+      <div class="section full">
+        blah blah blah balah
+      </div>
+      <h2 class="full">This Week</h2>
+      <div class="section full">
+        blah blah blah balah
+      </div>
+      <h2 class="full">This Month</h2>
+      <div class="section full">
+        blah blah blah balah
+      </div>
+      <h2 class="full">This Year</h2>
+      <div class="section full">
+        blah blah blah balah
+      </div>
+      <h2 class="full">Contacts</h2>
+      <div class="section full">
+        <%= render'shared/add_a_contact' %>
+        <% if current_user %>
+          <% current_user.associates.each do |contact| %>
+              <div class="<%= cycle('odd', 'even') %> contact_list_member">
+                <%= render'shared/contact_info', contact: contact %>
+              </div>
+
+            <!-- contact info container-->
+             
+          <% end %>
+        <% end %>
+        <br class="clear"/>
+
+      </div>
+      <h2 class="full">History</h2>
+      <div class="section full">
+        blah blah blah balah
+      </div>
+    </div>
+</div>

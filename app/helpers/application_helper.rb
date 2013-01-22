@@ -1,5 +1,5 @@
 module ApplicationHelper 
-# ********************** START Stock Methods START ********************
+# ********************** START Stock Methods S TART ********************
 	def question_for_andrew(text)
 		content_tag(:div, text, class: "andrew")
 	end
@@ -88,7 +88,7 @@ module ApplicationHelper
 	end
 
 	def add_gray_out(field, value)
-		if field == value
+		if "#{field}" == "#{value}"
 			""
 		else
 			"grayed_out"

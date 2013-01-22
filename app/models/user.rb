@@ -46,6 +46,8 @@ class User < ActiveRecord::Base
     :presence => { message: "Can't be blank" }
   validates :biz_type_id, 
     :presence => { message: "Category is needed to proceed" }
+  validates :email,
+    :presence => true
 
   validates_presence_of :password_digest, unless: :guest?
   validates_confirmation_of :password
