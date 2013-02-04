@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base 
+class User < ActiveRecord::Base  
   attr_accessible :admin, :biz_type, :company, :email, :first_name, :last_name, :password_reset_sent_at, :password_reset_token, :website, :guest
   attr_accessible :password, :password_confirmation, :fullname, :biz_type_id
   attr_accessible :social_networks_attributes, :affiliations_attributes, :addresses_attributes, :phone_numbers_attributes, :emails_attributes
