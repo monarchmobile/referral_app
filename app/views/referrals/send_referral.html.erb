@@ -1,4 +1,4 @@
-
+ 
 
 <div class="warm_up_now_or_later ref_field" >
 	<p> Would you like to warm up the target now?</p>
@@ -38,7 +38,7 @@
 	<div class="message_helper"></div>
 	<ul>
 		<%= form_for @referral, remote: true do |f| %>
-			<%= f.text_field :contact_by %>
+			<%= f.text_field :warm_up_by %>
 			<%= f.submit "add date" %>
 		<% end %>
 		

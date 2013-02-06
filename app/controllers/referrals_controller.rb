@@ -1,4 +1,4 @@
-class ReferralsController < ApplicationController
+class ReferralsController < ApplicationController 
   # GET /referrals
   # GET /referrals.json
   def index
@@ -101,7 +101,7 @@ class ReferralsController < ApplicationController
       @starts_with = 1
     end
     if params[:target_id]
-      @target_id = params[:target_id] 
+      @target_id = params[:target_id]
       @target = User.find(@target_id) 
       @starts_with = 2
     end

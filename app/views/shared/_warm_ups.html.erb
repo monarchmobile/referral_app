@@ -1,0 +1,8 @@
+<div class="warm_ups">
+	<ul>
+	<%= content_tag :h2, w.warm_up_by.strftime("%b %d") %>
+	<%= content_tag :li, "Referred to:#{w.referee.fullname}" %>
+	<%= content_tag :li, "Target: #{w.target.fullname}" %>
+	<%= content_tag :li, w.comments %>
+	<%= content_tag :li, "call now: #{w.referee.phone_numbers.first.number}" %>
+</div>
