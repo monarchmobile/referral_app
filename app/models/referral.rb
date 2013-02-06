@@ -29,5 +29,7 @@ class Referral < ActiveRecord::Base
   	self.first_name = split[0]
   	self.last_name = split[1]
   end
+
+  
  
 end
