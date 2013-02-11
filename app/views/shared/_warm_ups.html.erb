@@ -4,5 +4,5 @@
 	<%= content_tag :li, "Referred to:#{w.referee.fullname}" %>
 	<%= content_tag :li, "Target: #{w.target.fullname}" %>
 	<%= content_tag :li, w.comments %>
-	<%= content_tag :li, "call now: #{w.referee.phone_numbers.first.number}" %>
+	<%= content_tag :li, "call now: #{w.referee.phone_numbers.first.number}" if w.referee.phone_numbers.first.number %>
 </div>

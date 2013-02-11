@@ -2,9 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper :all
 
-  def my_warm_ups
-  	Referral.todays_warm_ups
-  end
+  
   helper_method :todays_warm_ups, :weeks_warm_ups, :months_warm_ups, :years_warm_ups
 
     def todays_warm_ups
