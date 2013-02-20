@@ -34,6 +34,8 @@ border: 1px solid gold;
 		color:gray;
 		overflow:scroll;
 		border:1px solid blue;
+		background: url(black-back.jpg) repeat;
+		border-radius: 10px;
 
 		div:nth-child(2) {
 			margin-top:0px;
@@ -146,8 +148,8 @@ height: 21px;
 
 .referral_add_contact {
 	margin-top: -15px;
-color: gray;
-margin-left: -0.25%;
+	color: gray;
+	margin-left: -0.25%;
 
 	&:hover{
 		:color:black;
@@ -155,10 +157,10 @@ margin-left: -0.25%;
 }
 
 .ref_field {
-	width: 80%;
+	background: url(black-back.jpg) repeat;
+	width: 90%;
 	margin: auto;
-	background: black;
-	padding-bottom: 15px;
+	padding:2%;
 	border-radius: 5px;
 	webkit-border-radius: 5px;
 	moz-border-radius: 5px;
@@ -184,21 +186,15 @@ margin-left: -0.25%;
 	ul {
 		padding:0px;
 		li {
-			width: 16%;
-			margin-left: 4%;
-			float: left;
-			list-style: none;
-			margin-top: 6px;
-			font-size: 12px;
-			padding: 10px 5px 0px 5px;
-			height: 27px;
-			text-align: center;
-			cursor: pointer;
-			opacity: 1;
-			color: #fff;
-			border-radius: 5px;
-			webkit-border-radius: 5px;
-			moz-border-radius: 5px;
+			color: #FFFFFF;
+		    cursor: pointer;
+		    float: left;
+		    font-size: 12px;
+		    height: 20px;
+		    list-style: none outside none;
+		    padding: 20px 0;
+		    text-align: center;
+		    width: 25%;
 
 			&:hover {
 				

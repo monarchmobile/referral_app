@@ -23,5 +23,5 @@ gem "best_in_place"
 gem "friendly_id"
 gem "bcrypt-ruby", "~> 3.0.0"
 gem "thin"
-gem "rmagick"
+gem 'rmagick', '2.13.2', :git=>'http://github.com/rmagick/rmagick.git'
 gem "carrierwave"
