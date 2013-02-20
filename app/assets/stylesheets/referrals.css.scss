@@ -273,6 +273,7 @@ height: 21px;
 	textarea {
 		margin-left: 1%;
     	width: 97%;
+    	border-radius: 5px;
 	}
 
 
@@ -404,22 +405,17 @@ height: 21px;
 }
 
 .submit_referral_btn {
-	margin: auto;
-	margin-top: 5%;
-	background: rgb(232, 239, 241);
-	width: 40%;
-	-moz-box-shadow: 0px 0px 5px #cccccc;
-	-webkit-box-shadow: 0px 0px 5px #cccccc;
-	box-shadow: 0px 0px 5px #cccccc;
-	border-radius: 5px;
-	webkit-border-radius: 5px;
-	moz-border-radius: 5px;
 
 	input[type='submit'] {
-		margin:10%;
-		background: #3b5998;
-		color:white;
-		text-align:center;
+		background: #3aa111;
+		background: -moz-linear-gradient(top,  #1c4f08 0%, #3aa111 50%, #1c4f08 100%); /* FF3.6+ */
+	    border-radius: 10px 10px 10px 10px;
+	    color: white;
+	    margin: 5%;
+	    padding: 2%;
+	    text-align: center;
+	    width: 90%;
+	    font-size: 20px;
 	}
 }
 
