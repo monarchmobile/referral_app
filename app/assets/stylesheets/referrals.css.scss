@@ -25,29 +25,28 @@ border: 1px solid gold;
 	margin-top:25px;
 
 	.participant {
-		width: 30%;
-		padding: 8px;
-		margin: 14px;
-		float: left;
-		height: 132px;
-		background: #000;
-		color:gray;
-		overflow:scroll;
-		border:1px solid blue;
-		background: url(black-back.jpg) repeat;
-		border-radius: 10px;
+		background: url("black-back.jpg") repeat scroll 0 0 transparent;
+	    border-radius: 10px 10px 10px 10px;
+	    color: gray;
+	    float: left;
+	    height: 112px;
+	    margin: 1%;
+	    overflow-x: hidden;
+	    overflow-y: scroll;
+	    padding: 1%;
+	    width: 40%;
 
 		div:nth-child(2) {
 			margin-top:0px;
 		}
 
 		img {
-			width: 60%;
-			margin: 5% 20%;
-			-moz-box-shadow:    0px 0px 5px #ccc;
-			-webkit-box-shadow: 0px 0px 5px #ccc;
-			box-shadow:         0px 0px 5px #ccc;
-			border:1px solid gray;
+			border: 1px solid gray;
+		    box-shadow: 0 0 5px #CCCCCC;
+		    height: auto;
+		    margin: 1%;
+		    padding: 2%;
+		    width: 92%;
 		}
 
 		select#lead_referee_id {
@@ -70,7 +69,7 @@ width: 135px;
 		}
 
 		.grayed_out {
-			background: gray;
+			background: none;
 			opacity : .7;
 		}
 
@@ -100,11 +99,16 @@ width: 135px;
 	}
 
 	.arrow {
-		width: 8%;
 		float: left;
-		height: 24px;
-		padding: 2px;
-		margin-top: 74px;
+	    height: 24px;
+	    margin-top: 50px;
+	    padding-left: 2%;
+	    width: 8%;
+
+	    p{
+	    	font-size: 30px;
+	    	text-shadow: 0 -1px 0 white;
+	    }
 
 		img {
 
@@ -127,7 +131,7 @@ width: 135px;
 }
 
 .participant_box {
-	border:1px solid #fff;
+	border-radius: 4px;
 	margin-top:15px;
 	cursor:pointer;
 	color:#fff;
@@ -167,7 +171,10 @@ height: 21px;
 	p {
 		text-align: center;
 		color:#fff;
-		padding-top:5px;
+		 color: #FFFFFF;
+	    font-size: 16px;
+	    padding: 5px;
+	    text-shadow: 1px 1px black;
 	}
 
 	ul {
@@ -181,26 +188,24 @@ height: 21px;
 
 .lead_hotness {	
 	height: 90px;
-	margin-top: 65px;
 
 	ul {
-		padding:0px;
+		border: 2px groove gray;
+	    border-radius: 5px 5px 5px 5px;
+	    overflow: hidden;
+	    padding: 0;
 		li {
 			color: #FFFFFF;
 		    cursor: pointer;
 		    float: left;
-		    font-size: 12px;
+		    font-size: 16px;
 		    height: 20px;
 		    list-style: none outside none;
 		    padding: 20px 0;
 		    text-align: center;
 		    width: 25%;
-
+		    text-shadow:1px 1px black;
 			&:hover {
-				
-				-moz-box-shadow:    0px 0px 5px #ccc;
-				-webkit-box-shadow: 0px 0px 5px #ccc;
-				box-shadow:         0px 0px 5px #ccc;
 				color:#fff;
 				opacity:1;
 			}
@@ -208,33 +213,36 @@ height: 21px;
 
 		li:nth-child(1) {
 			background: red;
+			background: -moz-linear-gradient(top,  #550101 0%, #ab0303 50%, #550101 100%); /* FF3.6+ */
 
 			&:hover {
 				background:gray;
-				border:1px solid red;
 
 			}
 
 		}
 
 		li:nth-child(2) {
-			background: brown;
+			background: #ec550a;
+			background: -moz-linear-gradient(top,  #742a05 0%, #ec550a 50%, #742a05 100%); /* FF3.6+ */
 			&:hover {
 				background:gray;
-				border:1px solid brown;
+				
+
 			}
 		}
 
 		li:nth-child(3) {
-			background: rgb(170, 170, 44);
+			background: #f9eb03;
+			background: -moz-linear-gradient(top,  #7a7301 0%, #f9eb03 50%, #7a7301 100%); /* FF3.6+ */
 			&:hover {
 				background:gray;
-				border:1px solid rgb(170, 170, 44);
 			}
 		}
 
 		li:nth-child(4) {
-			background: green;
+			background: #3aa111;
+			background: -moz-linear-gradient(top,  #1c4f08 0%, #3aa111 50%, #1c4f08 100%); /* FF3.6+ */
 			&:hover {
 				background:gray;
 				border:1px solid green;
@@ -243,7 +251,7 @@ height: 21px;
 
 		.grayed_out {
 			background: gray;
-			opacity : .25;
+			opacity : .50;
 		}
 
 	}
@@ -263,8 +271,8 @@ height: 21px;
 	}
 
 	textarea {
-		margin-left:8%;
-		width:80%;
+		margin-left: 1%;
+    	width: 97%;
 	}
 
 
@@ -278,8 +286,8 @@ height: 21px;
 		padding:0px;
 
 		li {
-			width: 16%;
-			margin-left: 19%;
+			width: 40%;
+			margin-left: 4%;
 			border: 1px solid gray;
 			float: left;
 			list-style: none;
@@ -308,7 +316,8 @@ height: 21px;
 		}
 
 		li:nth-child(2) {
-			background: red;
+			background: #ab0303;
+			background: -moz-linear-gradient(top,  #550101 0%, #ab0303 50%, #550101 100%); /* FF3.6+ */
 
 			&:hover {
 				background:gray;
@@ -318,7 +327,8 @@ height: 21px;
 		}
 
 		li:nth-child(1) {
-			background: green;
+			background: #3aa111;
+			background: -moz-linear-gradient(top,  #1c4f08 0%, #3aa111 50%, #1c4f08 100%); /* FF3.6+ */
 			&:hover {
 				background:gray;
 				border:1px solid green;
