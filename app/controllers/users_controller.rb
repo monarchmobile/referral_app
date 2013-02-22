@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
-    end
+    end 
   end
 
   def show
@@ -111,6 +111,6 @@ class UsersController < ApplicationController
     end
 
     def add_user_to_contact_list(user)
-      Contact.create(user_id: current_user, associate_id: user.id)
+      Contact.create(user_id: current_user.id, associate_id: user.id)
     end
 end
