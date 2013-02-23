@@ -4,10 +4,7 @@
 <%= form_for(@referral) do |f| %>
   <%= render 'shared/errors', object: @referral %>
 
-<div id="member_btns_container">
-  <%= content_tag :div, "Seller", class: "members giver", :"data-member" => "giver" %>
-  <%= content_tag :div, "Buyer", class: "members receiver", :"data-member" => "receiver"%>
-</div>
+
 <div id="member_section1">
   <div class="participants">
     
@@ -17,8 +14,13 @@
 
   </div>
 </div>
+<div id="member_btns_container">
+  <%= content_tag :div, referee_name(@referee), class: "members giver", :"data-member" => "giver" %>
+  <%= content_tag :div, target_name(@target), class: "members receiver", :"data-member" => "receiver"%>
+</div>
 <div id="member_section2">
   <div class="section2 giver_section">
+    <h3>specifics for <%= referee_name(@referee) %></h3>
     <div class="lead_hotness ref_field giver">
       <%= render 'referrals/form/lead_hotness', f: f %>
     </div>
@@ -38,6 +40,7 @@
   </div>
 
   <div class="section2 receiver_section">
+    <h3>specifics for <%= target_name(@target) %></h3>
     <div class="lead_hotness ref_field receiver">
       <%= render 'referrals/form/lead_hotness', f: f %>
     </div>
@@ -55,6 +58,7 @@
     </div>
   </div>
 </div>
+<br class="clear" />
 
   <div class="submit_referral_btn">
     <%= f.submit %>

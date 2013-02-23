@@ -111,6 +111,22 @@ module ApplicationHelper
 		end
 	end
 
+	def referee_name(user)
+		if user
+			user.fullname
+		else
+			"referee"
+		end
+	end
+
+	def target_name(user)
+		if user
+			user.fullname
+		else
+			"target"
+		end
+	end
+
 ####################### END Referral END ################
 
 ######### Menu ###########
