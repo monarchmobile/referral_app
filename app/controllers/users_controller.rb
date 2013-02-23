@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     phone_numbers = @user.phone_numbers
     emails = @user.emails
 
-  end
+  end 
 
 
   def create
@@ -50,10 +50,12 @@ class UsersController < ApplicationController
       respond_to do |format|
         if @user.save
           add_user_to_contact_list(@user) if @user.guest?
+          cookies[:auth_token] = @user.auth_token if !@user.guest?
           format.html { redirect_to @user, notice: 'User was successfully created.' }
           format.json { render json: @user, status: :created, location: @user }
         else
-          format.html { render action: "new" }
+          
+          format.html { render :back }
           format.json { render json: @user.errors, status: :unprocessable_entity }
         end
       end

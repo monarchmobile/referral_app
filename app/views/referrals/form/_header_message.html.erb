@@ -1,0 +1,17 @@
+<div class="new_referral_message full"> 
+  <% if @referee %> 
+      <% if @referee.id == current_user.id %>
+        <%= content_tag :div, "Prepping a lead for yourself", class: "referral_header_msg" %>
+      <% else %>
+    
+        <%= content_tag :div, "Sending a referral to #{@referee.fullname}", class: "referral_header_msg" %>
+      <% end %>
+  <% elsif @target %>
+      <% if @target.id == current_user.id %>
+        <%= content_tag :div, "Sending a recommendation to yourself", class: "referral_header_msg" %>
+      <% else %>
+        <%= content_tag :div, "Sending a recommendation to #{@target.fullname}", class: "referral_header_msg" %>
+      <% end %>
+  <% end %>
+  
+</div>

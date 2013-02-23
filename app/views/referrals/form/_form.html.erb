@@ -1,0 +1,66 @@
+  
+<%= render 'referrals/form/header_message' %>
+
+<%= form_for(@referral) do |f| %>
+  <%= render 'shared/errors', object: @referral %>
+
+<div id="member_btns_container">
+  <%= content_tag :div, "Seller", class: "members giver", :"data-member" => "giver" %>
+  <%= content_tag :div, "Buyer", class: "members receiver", :"data-member" => "receiver"%>
+</div>
+<div id="member_section1">
+  <div class="participants">
+    
+    <%= render 'referrals/form/referee_index' %>
+    
+    <%= render 'referrals/form/target_index' %>
+
+  </div>
+</div>
+<div id="member_section2">
+  <div class="section2 giver_section">
+    <div class="lead_hotness ref_field giver">
+      <%= render 'referrals/form/lead_hotness', f: f %>
+    </div>
+
+    <div class="lead_comments ref_field giver">
+      <%= render 'referrals/form/comments', f: f %>
+    </div>
+
+    <div class="lead_card_given ref_field giver">
+      <%= render 'referrals/form/card_given', f: f %>
+    </div>
+
+    <div class="lead_preferred_contact ref_field giver">
+      <%= render 'referrals/form/method_of_contact', f: f %>
+    </div>
+    
+  </div>
+
+  <div class="section2 receiver_section">
+    <div class="lead_hotness ref_field receiver">
+      <%= render 'referrals/form/lead_hotness', f: f %>
+    </div>
+
+    <div class="lead_comments ref_field receiver">
+      <%= render 'referrals/form/comments', f: f %>
+    </div>
+
+    <div class="lead_card_given ref_field receiver">
+      <%= render 'referrals/form/card_given', f: f %>
+    </div>
+
+    <div class="lead_preferred_contact ref_field receiver">
+      <%= render 'referrals/form/method_of_contact', f: f %>
+    </div>
+  </div>
+</div>
+
+  <div class="submit_referral_btn">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+<br class="clear" />
+
+

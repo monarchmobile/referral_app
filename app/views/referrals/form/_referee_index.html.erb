@@ -1,0 +1,14 @@
+<div class="giver participant <%= highlight(@starts_with, 1) %>">
+  <% if self_promotion(@referee) %>
+    <%= render 'referee_container', user: @referee %>
+  <% else %> 
+    <p>Choose a referee</p>
+    <% @users.each do |user| %>
+      <%= render 'referee_container', user: user %>
+    <% end %>
+    <%= content_tag :p, "", class: "chosen_referee_id" %>
+  <% end %>
+  
+  <%= hidden_field_tag :starts_with, @starts_with %>
+  <%= hidden_field_tag :referee_id, @referee_id %>
+</div>

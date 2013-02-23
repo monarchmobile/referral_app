@@ -2,11 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery -> 
+	$.fn.gray_out = ->
+		$(this).removeClass("grayed_out").siblings("div").addClass("grayed_out")
 
 	$.fn.choose_user = ->
 		$(this).click ->
-			$(this).removeClass("grayed_out")
-			$(this).siblings("div").addClass("grayed_out")
+			$(this).gray_out()
 			starts_with = $(this).attr("data-starts")
 			method = $(this).attr("data-method")
 			
@@ -29,12 +30,16 @@ jQuery ->
 			  else $(".referral_header_msg").html("").html "Sending a recommendation to " + user_name  if starts_with is "2"
 
 	$(".participant_box").choose_user()
+	$(".receiver_section").hide()
+	$(".members").click ->
 
+		member = $(this).data("member")
+		
+		$("."+member+"_section").show().siblings().hide()
 	# function adds value to hidden_field depending on which box is clicked
 	$.fn.choose_field = ->
 		$(this).click ->
-			$(this).removeClass("grayed_out")
-			$(this).siblings().addClass("grayed_out")
+			$(this).gray_out()
 
 			# determine attribute
 			column = $(this).attr("data-field")

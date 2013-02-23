@@ -1,0 +1,8 @@
+<div class="receiver participant <%= highlight(@starts_with, 2) %>">
+  <p>Choose a target</p>
+  <% @users.each do |user| %>
+    <%= render 'target_container', user: user %>
+  <% end %>
+  <%= content_tag :p, "", class: "chosen_target_id" %>
+</div>
+<%= hidden_field_tag :target_id, @target_id %>

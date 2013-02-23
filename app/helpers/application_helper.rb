@@ -41,6 +41,8 @@ module ApplicationHelper
 	def primary_arrow?(starts_with)
 		starts_with == 1
 	end
+
+
 # ###################### END Stock Methods END #######################
 
 # ********************** START User START ********************
@@ -53,7 +55,21 @@ module ApplicationHelper
 	    end
 	    link_to(name, '#', class: "add_fields add_rm_btns", data: {id: id, fields: fields.gsub("\n", "")})
 	end
-# ###################### END Referral END #######################
+# ###################### Start Referral Start #######################
+	def self_promotion(user)
+		if user.id == current_user.id
+			user = current_user
+		end
+	end  
+
+	def correct_user(user)
+		if user.id == current_user.id
+			member = current_user
+		else
+			member = user
+		end
+	end
+
 	def user_name_if_given(user)
 		if user
 			user.fullname

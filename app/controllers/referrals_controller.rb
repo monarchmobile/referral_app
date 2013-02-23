@@ -7,7 +7,7 @@ class ReferralsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @referrals }
-    end
+    end 
   end
 
   # GET /referrals/1
@@ -24,8 +24,11 @@ class ReferralsController < ApplicationController
   # GET /referrals/new
   # GET /referrals/new.json
   def new
+
+
     @referral = Referral.new
     lead_params
+    
 
     respond_to do |format|
       format.html # new.html.erb

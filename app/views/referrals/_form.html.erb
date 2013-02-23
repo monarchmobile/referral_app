@@ -1,93 +1,26 @@
  
-<div class="new_referral_message full"> 
-  <% if @referee %>
-      <% if @referee.id == current_user.id %>
-        <%= content_tag :div, "Prepping a lead for yourself", class: "referral_header_msg" %>
-      <% else %>
-    
-        <%= content_tag :div, "Sending a referral to #{@referee.fullname}", class: "referral_header_msg" %>
-      <% end %>
-  <% elsif @target %>
-      <% if @target.id == current_user.id %>
-        <%= content_tag :div, "Sending a recommendation to yourself", class: "referral_header_msg" %>
-      <% else %>
-        <%= content_tag :div, "Sending a recommendation to #{@target.fullname}", class: "referral_header_msg" %>
-      <% end %>
-  <% end %>
-  
-</div>
+<%= render 'referrals/form/header_message' %>
 
 <%= form_for(@referral) do |f| %>
   <%= render 'shared/errors', object: @referral %>
 
 <div class="participants">
-  <div class="giver participant <%= highlight(@starts_with, 1) %>"> 
-    <p>Choose a referee</p>
-    <% @users.each do |user| %>
-      <div class="participant_box referee_id <%= add_gray_out(@referee_id, user.id) %>" data-referee_id ="<%= user.id %>" data-field="referee_id" data-user_name="<%= user.fullname %>" data-starts="<%= @starts_with %>" data-method="pass_referee_to_form" data-root="<%= root_path %>">
-        <%= image_tag "blank.jpg", size: "50x50" %>
-        <%= content_tag(:div, user.fullname, class: "name_of_referee") %>
-      </div>
-    <% end %>
-    <%= content_tag :p, "", class: "chosen_referee_id" %>
-    
-    <%= hidden_field_tag :starts_with, @starts_with %>
-    <%= hidden_field_tag :referee_id, @referee_id %>
-  </div>
-  <div class="arrow ">
-      <%= image_tag "right_arrow.jpeg", size:"50x50" if primary_arrow?(@starts_with) %>
-      <%= image_tag "left_arrow.png", size:"50x50" if !primary_arrow?(@starts_with)%>
-  </div>
-
-
-  <div class="receiver participant <%= highlight(@starts_with, 2) %>">
-    <p>Choose a target</p>
-    <% @users.each do |user| %>
-      <div class="participant_box target_id <%= add_gray_out(@target_id, user.id) %>" data-target_id ="<%= user.id %>" data-field="target_id" data-user_name="<%= user.fullname %>" data-starts="<%= @starts_with %>" data-method="pass_target_to_form" data-root="<%= root_path %>">
-        <%= image_tag "blank.jpg", size: "50x50" %>
-        <%= content_tag(:div, user.fullname, class: "name_of_target") %>
-      </div>
-    <% end %>
-    <%= content_tag :p, "", class: "chosen_target_id" %>
-  </div>
-  <%= hidden_field_tag :target_id, @target_id %>
+  <%= content_tag :div, "Seller", class: "members giver"%>
+  <%= content_tag :div, "Buyer", class: "members receiver"%>
+  <%= render 'referrals/form/referee_index' %>
+  
+  <%= render 'referrals/form/target_index' %>
   
 
 </div>
 
-<div class="lead_hotness ref_field">
-  <p>Follow up within:</p>
-  <ul data-new="<%= @referral.new_record? %>">
-    <%= content_tag :li, "Today", class: "urgency #{add_gray_out(@referral.urgency, 'today') unless @referral.new_record? }", :"data-urgency" => "today", :"data-field" => "urgency"  %>
-    <%= content_tag :li, "Week", class: "urgency #{add_gray_out(@referral.urgency, 'week') unless @referral.new_record?}", :"data-urgency" => "week", :"data-field" => "urgency" %>
-    <%= content_tag :li, "Month", class: "urgency #{add_gray_out(@referral.urgency, 'month') unless @referral.new_record?}", :"data-urgency" => "month", :"data-field" => "urgency" %>
-    <%= content_tag :li, "Year", class: "urgency #{add_gray_out(@referral.urgency, 'year') unless @referral.new_record?}", :"data-urgency" => "year", :"data-field" => "urgency" %>
-    <%= f.hidden_field :urgency %>
-  </ul>
-</div>
+  <%= render 'referrals/form/lead_hotness' %>
 
-<div class="lead_comments ref_field">
-  <p>Comments</p>
-  <%= f.text_area :comments, rows: 4 %>
-</div>
+  <%= render 'referrals/form/comments' %>
 
-<div class="lead_card_given ref_field">
-    <p>Card Given</p>
-     <ul data-new="<%= @referral.new_record? %>">
-      <%= content_tag :li, "Yes", class: "card_given #{add_gray_out(@referral.card_given, true) unless @referral.new_record?}", :"data-field" => "card_given", :"data-card_given" => true %>
-      <%= content_tag :li, "No", class: "card_given #{add_gray_out(@referral.card_given, false) unless @referral.new_record?}", :"data-field" => "card_given", :"data-card_given" => false %>
-      <%= f.hidden_field :card_given %>
-    </ul>
-</div>
+  <%= render 'referrals/form/card_given' %>
 
-<div class="lead_preferred_contact ref_field">
-  <p>Preferred Method of Contact</p>
-   <ul data-new="<%= @referral.new_record? %>">
-      <%= content_tag :li, "Call", class: "preferred_contact #{add_gray_out(@referral.preferred_contact, 'call') unless @referral.new_record?}", :"data-field" => "preferred_contact", :"data-preferred_contact" => "call" %>
-      <%= content_tag :li, "Email", class: "preferred_contact #{add_gray_out(@referral.preferred_contact, 'email') unless @referral.new_record?}", :"data-field" => "preferred_contact", :"data-preferred_contact" => "email" %>
-      <%= f.hidden_field :preferred_contact %>
-    </ul>
-</div>
+  <%= render 'referrals/form/method_of_contact' %>
 
 
 

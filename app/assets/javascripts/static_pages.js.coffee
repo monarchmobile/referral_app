@@ -5,9 +5,9 @@
 jQuery ->
 	$(".section").hide()
 	$(".menu_items h2").toggle (->
-		$(this).next(".section").slideDown(500)
+		$(this).next(".section").slideDown(100)
 	), -> 
-		$(this).next(".section").slideUp(500)
+		$(this).next(".section").slideUp(100)
 
 	$(".menu_accordian").toggle (->
 		$(this).next().show()

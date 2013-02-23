@@ -1,0 +1,4 @@
+<div class="participant_box target_id <%= add_gray_out(@target_id, user.id) %>" data-target_id ="<%= user.id %>" data-field="target_id" data-user_name="<%= user.fullname %>" data-starts="<%= @starts_with %>" data-method="pass_target_to_form" data-root="<%= root_path %>">
+	<%= image_tag "blank.jpg", size: "50x50" %>
+	<%= content_tag(:div, user.fullname, class: "name_of_target") %>
+</div>

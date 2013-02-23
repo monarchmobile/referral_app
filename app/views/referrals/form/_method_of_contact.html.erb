@@ -1,0 +1,6 @@
+  <p>Preferred Method of Contact</p>
+   <ul data-new="<%= @referral.new_record? %>">
+      <%= content_tag :li, "Call", class: "preferred_contact #{add_gray_out(@referral.preferred_contact, 'call') unless @referral.new_record?}", :"data-field" => "preferred_contact", :"data-preferred_contact" => "call" %>
+      <%= content_tag :li, "Email", class: "preferred_contact #{add_gray_out(@referral.preferred_contact, 'email') unless @referral.new_record?}", :"data-field" => "preferred_contact", :"data-preferred_contact" => "email" %>
+      <%= f.hidden_field :preferred_contact %>
+    </ul>

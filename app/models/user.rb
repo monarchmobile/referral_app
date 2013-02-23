@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
     :presence => true
 
   validates_presence_of :password_digest, unless: :guest?
-  validates_confirmation_of :password
+  validates_confirmation_of :password_confirmation
   
 
   # override has_secure_password to customize validation until Rails 4.
@@ -89,7 +89,10 @@ class User < ActiveRecord::Base
     new { |u| u.guest = true }
   end
 
- 
+  
+   def paid_with_card?
+     confirmation_password.any?
+   end
 
 
 end
