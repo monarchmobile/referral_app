@@ -6,7 +6,7 @@
     <% @users.each do |user| %>
       <%= render 'referee_container', user: user %>
     <% end %>
-    <%= content_tag :p, "", class: "chosen_referee_id" %>
+    
   <% end %>
   
   <%= hidden_field_tag :starts_with, @starts_with %>
