@@ -65,7 +65,6 @@ jQuery ->
 	$(".members").click ->
 		$(".section2").removeClass("giver receiver").hide()
 		member = $(this).data("member")	
-
 		$("."+member+"_section").show().addClass(member).siblings().hide()
 		
 	# referral form choose potential values
