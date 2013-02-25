@@ -116,7 +116,7 @@ module ApplicationHelper
 		if ("#{type}_#{field}" == "#{value}")
 			""
 		else
-			"grayed_out"
+			""
 		end
 	end
 
@@ -124,7 +124,7 @@ module ApplicationHelper
 		if "#{field}" == "#{value}"
 			""
 		else
-			"grayed_out"
+			""
 		end
 
 	end

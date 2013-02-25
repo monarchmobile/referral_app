@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery -> 
+
 	$.fn.gray_out = ->
 		$(this).removeClass("grayed_out")
 		$(this).siblings().not("p").addClass("grayed_out")
@@ -30,13 +31,6 @@ jQuery ->
 			    	$(".referral_header_msg").html("").html "adding " + user_name + " as target for this referral"
 			  else $(".referral_header_msg").html("").html "Sending a recommendation to " + user_name  if starts_with is "2"
 
-	$(".participant_box").choose_user()
-	$(".receiver_section").hide()
-	$(".members").click ->
-
-		member = $(this).data("member")
-		
-		$("."+member+"_section").show().siblings().hide()
 	# function adds value to hidden_field depending on which box is clicked
 	$.fn.choose_field = ->
 		$(this).click ->
@@ -65,8 +59,14 @@ jQuery ->
 		 		$("ul").find("[data-"+attr+"='" + input_value + "']").removeClass("grayed_out");
 			else
 			 	$("#referral_note_attributes_"+type+"_"+column).removeClass("grayed_out")
-			
-			
+
+	$(".ref_field ul li").removeClass("grayed_out")
+	$(".participant_box").choose_user()
+	$(".receiver_section").hide()
+	$(".members").click ->
+		member = $(this).data("member")	
+		$("."+member+"_section").show().siblings().hide()
+		
 	# referral form choose potential values
 	$(".urgency").choose_field()
 	$(".card_given").choose_field()
@@ -75,7 +75,6 @@ jQuery ->
 	$(".urgency").style_field()
 	$(".card_given").style_field()
 	$(".preferred_contact").style_field()
-	
 
 	$(".warm_up_when").toggle (->
 		time_to_contact = $(this).attr("data-when")
