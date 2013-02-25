@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$recipient: rgb(230, 158, 158);
-$giver: rgb(168, 230, 168);
+$recipient: #E66900;
+$giver: #005C7A;
 
 .new_referral_message {
 	background: #77983b;
@@ -31,10 +31,14 @@ text-align: center;
 float: left;
 cursor:pointer;
 padding:5px 0px;
+color:white;
 }
 
 .giver {
 	background: $giver;
+}
+
+.left_button {
 	margin-left: 4%;
     margin-right: 4%;
 }
@@ -45,7 +49,7 @@ padding:5px 0px;
 
 .grayed_out {
 	background: gray;
-	opacity : .7;
+	opacity : .5;
 }
 
 .participants {
@@ -172,7 +176,6 @@ width: 135px;
 }
 
 #member_section2 {
-	background: $giver;
 	margin:auto;
 	height:500px;
 	width:92%;
@@ -312,7 +315,6 @@ height: 21px;
 			background: -moz-linear-gradient(top,  #1c4f08 0%, #3aa111 50%, #1c4f08 100%); /* FF3.6+ */
 			&:hover {
 				background:gray;
-				border:1px solid green;
 			}
 		}
 		
