@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
     :presence => true
 
   validates_presence_of :password_digest, unless: :guest?
-  validates_confirmation_of :password_confirmation, 
+  validates_confirmation_of :password, 
     :on => :create
   
 
