@@ -1,22 +1,19 @@
 <div class="header full">
-    <ul>
-      <% if current_user %>
-            <%= link_to content_tag(:li, current_user.fullname), home_path %>
-            <%= link_to content_tag(:li, "Logout"), logout_path %>
-          <% else %>
+  <div class="header_links_container">
+      <% if current_user %>    
+            <%= link_to content_tag(:li, "Learn More"), about_path %>      
+      <% else %>
             <%= link_to content_tag(:li, "Sign Up"), signup_path %>
+            <%= link_to content_tag(:li, "Learn More"), about_path %>
             <%= link_to content_tag(:li, "Sign Inn"), login_path %>
-          <% end %>
-
-    </ul>
+      <% end %>
+  </div>
     <% if current_user %>
       <div class="menu_accordian">Menu</div>
       <div class="menu_items hide">
         <h2 class="full">Today</h2>
         <div class="section full">
           <%= render'shared/today' %>
-           
-
         </div>
         <h2 class="full">This Week</h2>
         <div class="section full">
@@ -39,9 +36,6 @@
                 <div class="<%= cycle('odd', 'even') %> contact_list_member">
                   <%= render'shared/contact_info', contact: contact %>
                 </div>
-
-              <!-- contact info container-->
-               
             <% end %>
           <% end %>
           <br class="clear"/>
@@ -51,6 +45,10 @@
         <div class="section full">
           blah blah blah balah
         </div>
+        <% if current_user %>
+          <%= link_to content_tag(:h3, "Edit Profile", class: "full"), home_path %>
+          <%= link_to content_tag(:h3, "Logout", class: "full"), logout_path %>
+        <% end %>
       </div>
     <% end %>
 </div>

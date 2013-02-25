@@ -1,50 +1,48 @@
 #dashboard {
   width:300px;
   border:2px solid gold;
-  
   height:auto;
-
-  
 }
 
 .full {
-
   margin: 0px 0px 0px 0px;
   padding: 0px;
   padding-top: 13px;
   text-align: center;
   width: 100%;
   color: #fff;
-
   min-height: 40px;
   height:auto;
-
 }
 
 .header {
   background:black;
+  .header_links_container {
+    width:auto;
+    margin:auto;
+    height:15px;
 
-  ul {
-    margin:0px;
-    padding:0px;
+      a li {
+        width:75px;
+        float:left;
+        list-style: none;
+        
+        color:white;
+      }
 
-    a li {
-      width:50%;
-      float:left;
-      list-style: none;
-      
-      color:white;
-    }
+    
   }
 }
-
 .menu_items {
-  margin-top:30px;
 
   h2 {
     
     background: #3b5998;
     cursor:pointer;
+
+    a li {
+      list-style: none;
+    }
   }
   .section {
     background:gray;
@@ -124,14 +122,12 @@ ul.contact_info {
       height: 23px;
       text-align:left;
       display: block;
-      
     }
 
     a:hover, a li:hover {
       background:none;
       color:#fff;
     }
-
 }
 
 ul.address_info {
@@ -144,18 +140,15 @@ ul.address_info {
 
     li {
       float: none;
-width: 200px;
-margin: 0px;
-margin-left:67px;
-padding: 2px;
-height: 18px;
-text-align: left;
-display: block;
-color:black;
-      
+      width: 200px;
+      margin: 0px;
+      margin-left:67px;
+      padding: 2px;
+      height: 18px;
+      text-align: left;
+      display: block;
+      color:black;
     }
-
-    
 }
 
 .contact_page {
@@ -179,5 +172,4 @@ color:black;
     text-decoration: underline;
     color:blue;
   }
-
 }

@@ -56,6 +56,15 @@ module ApplicationHelper
 	    link_to(name, '#', class: "add_fields add_rm_btns", data: {id: id, fields: fields.gsub("\n", "")})
 	end
 # ###################### Start Referral Start #######################
+	# depending on which member you are filling out on referral form, prepopulates fullname
+	def this_connection(type, ref, tar)
+		if type == "r"
+			ref.first_name if ref.present?
+		elsif type =="t"
+			tar.first_name if tar.present?
+		end
+	end
+
 	def self_promotion(user)
 		if user.id == current_user.id
 			user = current_user
