@@ -1,16 +1,16 @@
 class NotesController < ApplicationController
 
 	def new
-		@referral = Referral.find(params[:referral_id])
-		@note = @referral.notes.build
+		@note = Note.new
 		respond_to do |format|
 	      format.js
 	    end
 	end
 
 	def create 
-		@referral = Referral.find(params[:note][:referral_id])
-	    @note = @referral.notes.build(params[:note])
+		# @referral = Referral.find(params[:referral_id])
+  		# @note = @referral.note.build(params[:note])
+  		@note = Note.new(params[:note])
 
 	    respond_to do |format|
 	      if @note.save

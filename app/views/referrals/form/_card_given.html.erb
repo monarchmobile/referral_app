@@ -1,7 +1,7 @@
 
     <p>Card Given</p>
      <ul data-new="<%= @referral.new_record? %>">
-      <%= content_tag :li, "Yes", class: "card_given #{add_gray_out(@referral.card_given, true) unless @referral.new_record?}", :"data-field" => "card_given", :"data-card_given" => true %>
-      <%= content_tag :li, "No", class: "card_given #{add_gray_out(@referral.card_given, false) unless @referral.new_record?}", :"data-field" => "card_given", :"data-card_given" => false %>
+      <%= content_tag :li, "Yes", class: "card_given #{add_gray_out(@referral.card_given, true) unless @referral.new_record?}", :"data-field" => "card_given", :"data-card_given" => true, :"data-type" => @type %>
+      <%= content_tag :li, "No", class: "card_given #{add_gray_out(@referral.card_given, false) unless @referral.new_record?}", :"data-field" => "card_given", :"data-card_given" => false, :"data-type" => @type %>
       <%= f.hidden_field :card_given %>
     </ul>

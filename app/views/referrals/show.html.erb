@@ -5,7 +5,17 @@
     <%= content_tag :li, "Date #{sent_or_received(@referral, current_user)}: #{@referral.created_at.strftime("%B %d, %Y")}" %>
     <%= content_tag :li, "From: #{@referral.referrer.fullname}" %>
     <%= content_tag :li, "To: #{@referral.referee.fullname}" %>
-    <%= content_tag :li, "Target: #{@referral.target.fullname}" %> 
+    <%= content_tag :li, "call_by: #{@referral.note.r_urgency}" %>
+    <%= content_tag :li, "call_by: #{@referral.note.r_comments}" %>
+    <%= content_tag :li, "call_by: #{@referral.note.r_card_given}" %>
+    <%= content_tag :li, "call_by: #{@referral.note.r_preferred_contact}" %>
+
+
+    <%= content_tag :li, "Target: #{@referral.target.first_name}" %> 
+    <%= content_tag :li, "call_by: #{@referral.note.t_urgency}" %>
+    <%= content_tag :li, "call_by: #{@referral.note.t_comments}" %>
+    <%= content_tag :li, "call_by: #{@referral.note.t_card_given}" %>
+    <%= content_tag :li, "call_by: #{@referral.note.t_preferred_contact}" %>
     <%= content_tag :li, "#{@referral.address1}" if @referral.address1%>
     <%= content_tag :li, "#{@referral.address2}" if @referral.address2  %>
     <%= content_tag :li, "#{@referral.city}, #{@referral.state}" if @referral.city %>
@@ -13,12 +23,13 @@
     <%= content_tag :li, "#{@referral.phone2}" if @referral.phone2 %>
     <li>Email: <%= mail_to @referral.email, @referral.email %></li>
     <%= content_tag :li, "Comments: #{@referral.comments}" %>
+    
   </ul> 
   <br class="clear" />
 </div>
 
-<%= link_to "Edit", edit_referral_path(@referral, ) %>
+<%= link_to "Edit", edit_referral_path(@referral) %>
 <p>Confirm that the info is correct and then submit</p>
-<%= link_to "Send Referral to #{@referral.referee.fullname}", send_referral_path(@referral) %>
+<%= link_to "Send introduction", send_referral_path(@referral) %>
 
 <%= button_to "Send Recommendation to #{@referral.target.fullname}", send_recommendation_path(@referral) %>

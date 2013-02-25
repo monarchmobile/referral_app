@@ -3,7 +3,8 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery -> 
 	$.fn.gray_out = ->
-		$(this).removeClass("grayed_out").siblings("div").addClass("grayed_out")
+		$(this).removeClass("grayed_out")
+		$(this).siblings().addClass("grayed_out")
 
 	$.fn.choose_user = ->
 		$(this).click ->
@@ -43,25 +44,28 @@ jQuery ->
 
 			# determine attribute
 			column = $(this).attr("data-field")
+			type = $(this).data("type")
 			# determine attribute value
 			column_value = $(this).attr("data-"+column)
 			# populate attributes value in hidden_field
-			$("#referral_"+column).val(column_value)
+			$("#referral_note_attributes_"+type+"_"+column).val(column_value)
+
 	$.fn.style_field = ->
 			# $(this).siblings().addClass("grayed_out")
 			# determine attribute
 		new_record = $(this).parent().attr("data-new")
 		
 		column = $(this).attr("data-field")
+		type = $(this).data("type")
 		column_value = $(this).attr("data-"+column)
 		$("#referral_"+column).val(column_value)
-		input_value = $("#referral_"+column).val()
+		input_value = $("#referral_note_attributes_"+type+"_"+column).val()
 		
 		if new_record == false
 		 	if field == input_value
 		 		$("ul").find("[data-"+attr+"='" + input_value + "']").removeClass("grayed_out");
 			else
-			 	$("#referral_"+column).removeClass("grayed_out")
+			 	$("#referral_note_attributes_"+type+"_"+column).removeClass("grayed_out")
 			
 			
 	# referral form choose potential values

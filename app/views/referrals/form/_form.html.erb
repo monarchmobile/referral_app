@@ -4,61 +4,70 @@
 <%= form_for(@referral) do |f| %>
   <%= render 'shared/errors', object: @referral %>
 
+  <div id="member_section1">
+    <div class="participants">
+      
+      <%= render 'referrals/form/referee_index' %>
+      
+      <%= render 'referrals/form/target_index' %>
 
-<div id="member_section1">
-  <div class="participants">
-    
-    <%= render 'referrals/form/referee_index' %>
-    
-    <%= render 'referrals/form/target_index' %>
-
-  </div>
-</div>
-<div id="member_btns_container">
-  <h3>Send information to</h3>
-  <%= content_tag :div, referee_name(@referee), class: "members giver chosen_referee_id",  :"data-member" => "giver" %>
-  <%= content_tag :div, target_name(@target), class: "members receiver chosen_target_id", :"data-member" => "receiver"%>
-</div>
-<div id="member_section2">
-  <div class="section2 giver_section">
-    
-    <div class="lead_hotness ref_field giver">
-      <%= render 'referrals/form/lead_hotness', f: f %>
-    </div>
-
-    <div class="lead_comments ref_field giver">
-      <%= render 'referrals/form/comments', f: f %>
-    </div>
-
-    <div class="lead_card_given ref_field giver">
-      <%= render 'referrals/form/card_given', f: f %>
-    </div>
-
-    <div class="lead_preferred_contact ref_field giver">
-      <%= render 'referrals/form/method_of_contact', f: f %>
-    </div>
-    
-  </div>
-
-  <div class="section2 receiver_section">
-    
-    <div class="lead_hotness ref_field receiver">
-      <%= render 'referrals/form/lead_hotness', f: f %>
-    </div>
-
-    <div class="lead_comments ref_field receiver">
-      <%= render 'referrals/form/comments', f: f %>
-    </div>
-
-    <div class="lead_card_given ref_field receiver">
-      <%= render 'referrals/form/card_given', f: f %>
-    </div>
-
-    <div class="lead_preferred_contact ref_field receiver">
-      <%= render 'referrals/form/method_of_contact', f: f %>
     </div>
   </div>
-</div>
+  <div id="member_btns_container">
+    <h3>Send information to</h3>
+    <%= content_tag :div, referee_name(@referee), class: "members giver chosen_referee_id",  :"data-member" => "giver" %>
+    <%= content_tag :div, target_name(@target), class: "members receiver chosen_target_id", :"data-member" => "receiver"%>
+  </div>
+  <%= f.fields_for :note do |builder| %>
+    <div id="member_section2">
+      <div class="section2 giver_section">
+        <% @type = "r" %> 
+        <div class="lead_hotness ref_field giver">
+          <%= render 'referrals/form/lead_hotness', f: f, type: @type %>
+        </div>
+        <div class="lead_comments ref_field giver">
+          
+            <p>Comments</p>
+            <%= builder.text_area :r_comments, rows: 4 %>
+          
+        </div>
+        <div class="lead_card_given ref_field giver">
+          <%= render 'referrals/form/card_given', f: f, type: @type %>
+        </div>
+        <div class="lead_preferred_contact ref_field giver">
+          <%= render 'referrals/form/method_of_contact', f: f, type: @type %>
+        </div>  
+      </div>
+
+      <div class="section2 receiver_section">
+        <div class="lead_hotness ref_field receiver">
+          <% @type = "t" %>
+          <%= render 'referrals/form/lead_hotness', f: f, type: @type %>
+        </div>
+        <div class="lead_comments ref_field receiver">
+          
+            <p>Comments</p>
+            <%= builder.text_area :t_comments, rows: 4 %>
+         
+        </div>
+        <div class="lead_card_given ref_field receiver">
+          <%= render 'referrals/form/card_given', f: f, type: @type %>
+        </div>
+        <div class="lead_preferred_contact ref_field receiver">
+          <%= render 'referrals/form/method_of_contact', f: f, type: @type %>
+        </div>
+      </div>
+    </div>
+
+    
+    <%= builder.hidden_field :r_urgency %>
+    <%= builder.hidden_field :t_urgency %>
+    <%= builder.hidden_field :r_card_given %>
+    <%= builder.hidden_field :t_card_given %>
+    <%= builder.hidden_field :r_preferred_contact %>
+    <%= builder.hidden_field :t_preferred_contact %>
+  <% end %>
+  
 <br class="clear" />
 
   <div class="submit_referral_btn">

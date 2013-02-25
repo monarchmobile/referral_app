@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$recipient: red;
-$giver: rgb(62, 214, 62);
+$recipient: rgb(230, 158, 158);
+$giver: rgb(168, 230, 168);
 
 .new_referral_message {
 	background: #77983b;
@@ -45,7 +45,10 @@ cursor:pointer;
 	background: $recipient;
 }
 
-
+.grayed_out {
+	background: blue;
+	opacity : .7;
+}
 
 .participants {
 width: 270px;
@@ -94,10 +97,7 @@ width: 135px;
 			position: absolute;
 		}
 
-		.grayed_out {
-			background: gray;
-			opacity : .7;
-		}
+		
 
 		p.chosen_target_id {
 			font-size: 12px;
@@ -305,10 +305,7 @@ margin-left: -0.25%;
 			}
 		}
 
-		.grayed_out {
-			background: gray;
-			opacity : .25;
-		}
+		
 
 	}
 	

@@ -24,12 +24,10 @@ class ReferralsController < ApplicationController
   # GET /referrals/new
   # GET /referrals/new.json
   def new
-
-
     @referral = Referral.new
+    @referral.build_note
     lead_params
     
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @referral }
@@ -50,6 +48,7 @@ class ReferralsController < ApplicationController
   # POST /referrals.json
   def create
     @referral = Referral.new(params[:referral])
+    # @referral.notes.build
     @referee_id = params[:referee_id]
     @target_id = params[:target_id]
     respond_to do |format|
@@ -117,6 +116,7 @@ class ReferralsController < ApplicationController
     @referral = Referral.find(params[:id])
 
     UserMailer.send_referral_to_referee(@referral).deliver
+    UserMailer.send_referral_to_target(@referral).deliver
 
   end
 end

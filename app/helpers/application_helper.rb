@@ -35,7 +35,7 @@ module ApplicationHelper
 			"highlight"
 		else
 			""
-		end
+		end 
 	end
 
 	def primary_arrow?(starts_with)
@@ -88,7 +88,7 @@ module ApplicationHelper
 
 	def there_are_referrals(list)
 		list.count > 0
-	end
+	end 
 
 	def no_referrals_message(delivery)
 	    content_tag :div, "You have no #{delivery} referrals at this time", class: "no_referrals"
