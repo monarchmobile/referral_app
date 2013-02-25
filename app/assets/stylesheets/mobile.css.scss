@@ -21,7 +21,7 @@ body {
 }
 
 .header {
-  background:black;
+
   .header_links_container {
     width:auto;
     margin:auto;
@@ -31,7 +31,6 @@ body {
         width:75px;
         float:left;
         list-style: none;
-        
         color:white;
       }
 
@@ -54,7 +53,7 @@ body {
 
   }
   .section {
-    background:gray;
+    background:transparent;
   }
 }
 

@@ -13,11 +13,14 @@
 
     </div>
   </div>
-  <div id="member_btns_container">
-    <h3>Send information to</h3>
+
+  <div class="send_info">
+    <p>Send information to</p>
     <%= content_tag :div, referee_name(@referee), class: "members giver chosen_referee_id",  :"data-member" => "giver" %>
     <%= content_tag :div, target_name(@target), class: "members receiver chosen_target_id", :"data-member" => "receiver"%>
+    <br class="clear">
   </div>
+
   <%= f.fields_for :note do |builder| %>
     <div id="member_section2">
       <div class="section2 giver_section">
