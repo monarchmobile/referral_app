@@ -1,7 +1,7 @@
 
   <%= content_tag :p, "Contact #{this_connection(@type, @referee, @target)} within:" %>
   <ul data-new="<%= @referral.new_record? %>">
-    <%= content_tag :li, "Today", class: "urgency #{add_gray_out(@type, 'urgency', 'today') unless @referral.new_record? }", :"data-urgency" => "today", :"data-field" => "urgency", :"data-type" => @type %>
+    <%= content_tag :li, "Today", class: "urgency #{add_gray_out(@type, 'urgency', 'today') unless @referral.new_record?}", :"data-urgency" => "today", :"data-field" => "urgency", :"data-type" => @type %>
     <%= content_tag :li, "Week", class: "urgency #{add_gray_out(@type, 'urgency', 'week') unless @referral.new_record?}", :"data-urgency" => "week", :"data-field" => "urgency", :"data-type" => @type %>
     <%= content_tag :li, "Month", class: "urgency #{add_gray_out(@type, 'urgency', 'month') unless @referral.new_record?}", :"data-urgency" => "month", :"data-field" => "urgency", :"data-type" => @type %>
     <%= content_tag :li, "Year", class: "urgency #{add_gray_out(@type, 'urgency', 'year') unless @referral.new_record?}", :"data-urgency" => "year", :"data-field" => "urgency", :"data-type" => @type %>
