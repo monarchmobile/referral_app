@@ -4,7 +4,7 @@
 jQuery -> 
 	$.fn.gray_out = ->
 		$(this).removeClass("grayed_out")
-		$(this).siblings().addClass("grayed_out")
+		$(this).siblings().not("p").addClass("grayed_out")
 
 	$.fn.choose_user = ->
 		$(this).click ->
@@ -51,8 +51,7 @@ jQuery ->
 			$("#referral_note_attributes_"+type+"_"+column).val(column_value)
 
 	$.fn.style_field = ->
-			# $(this).siblings().addClass("grayed_out")
-			# determine attribute
+		$(this).gray_out()
 		new_record = $(this).parent().attr("data-new")
 		
 		column = $(this).attr("data-field")

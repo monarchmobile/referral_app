@@ -22,7 +22,8 @@ border: 1px solid gold;
 }
 
 .members {
-width: 30%;
+width: auto;
+padding: 8px 5px 0px;
 height: 22px;
 border-radius: 5px;
 text-align: center;
@@ -46,7 +47,7 @@ cursor:pointer;
 }
 
 .grayed_out {
-	background: blue;
+	background: gray;
 	opacity : .7;
 }
 
@@ -54,6 +55,11 @@ cursor:pointer;
 width: 270px;
 height: 150px;
 margin: 25px auto;
+	
+	.grayed_out {
+	background: gray;
+	opacity : .7;
+}
 
 	.participant {
 		width: 80px;
@@ -243,6 +249,12 @@ margin-left: -0.25%;
 
 	ul {
 		padding:0px;
+
+		.grayed_out {
+			background: gray;
+			opacity : .3;
+		}
+		
 		li {
 			width: 16%;
 			margin-left: 4%;

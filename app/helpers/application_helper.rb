@@ -1,4 +1,4 @@
-module ApplicationHelper 
+module ApplicationHelper  
 # ********************** START Stock Methods S TART ********************
 	def question_for_andrew(text)
 		content_tag(:div, text, class: "andrew")
@@ -103,12 +103,21 @@ module ApplicationHelper
 		
 	end
 
-	def add_gray_out(field, value)
+	def add_gray_out(type, field, value)
+		if ("#{type}_#{field}" == "#{value}")
+			""
+		else
+			"grayed_out"
+		end
+	end
+
+	def add_gray_out_image(field, value)
 		if "#{field}" == "#{value}"
 			""
 		else
 			"grayed_out"
 		end
+
 	end
 
 	def referee_name(user)
