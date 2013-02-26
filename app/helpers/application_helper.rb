@@ -131,7 +131,7 @@ module ApplicationHelper
 
 	def referee_name(user)
 		if user
-			user.fullname
+			user.last_name
 		else
 			"referee"
 		end
@@ -139,7 +139,7 @@ module ApplicationHelper
 
 	def target_name(user)
 		if user
-			user.fullname
+			user.last_name
 		else
 			"target"
 		end

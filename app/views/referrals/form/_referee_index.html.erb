@@ -1,6 +1,6 @@
 <div class="giver participant <%= highlight(@starts_with, 1) %>">
   <% if self_promotion(@referee) %>
-    <%= render 'referee_container', user: @referee %>
+    <%= render 'referee_container', user: @referee %> 
   <% else %> 
    <!--  <p>Choose a referee</p> -->
     <% @users.each do |user| %>

@@ -1,4 +1,4 @@
-class ReferralsController < ApplicationController 
+class ReferralsController < ApplicationController  
   # GET /referrals
   # GET /referrals.json
   def index

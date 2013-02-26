@@ -61,11 +61,14 @@ jQuery ->
 
 	$(".ref_field ul li").removeClass("grayed_out")
 	$(".participant_box").choose_user()
+	$(".actions").choose_user()
 	$(".receiver_section").hide()
 	$(".members").click ->
+		$(".section2").hide()
 		$("#member_section2").removeClass("giver receiver").hide()
 		member = $(this).data("member")	
 		$("#member_section2").show().addClass(member)
+		$("."+member+"_section").show().siblings().hide()
 		
 	# referral form choose potential values
 	$(".urgency").choose_field()
