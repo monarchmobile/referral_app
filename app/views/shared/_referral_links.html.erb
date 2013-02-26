@@ -1,4 +1,4 @@
-<!-- <div class="network_action_btns full">
-    <%= link_to content_tag(:div, "Refer business", class: "actions refer_link"), new_referral_path(:referee_id => correct_user(@user)), :"data-id" => @user.id, :"data-user-type" => "referee" %>
-    <%= link_to content_tag(:div, "Make recommendation", class: "actions refer_link"), new_referral_path(:target_id => correct_user(@user)), :"data-id" => @user.id, :"data-user-type" => "target" %>
-</div> -->
+<div class="network_action_btns full">
+    <%= link_to content_tag(:div, "Send Referral", class: "actions refer_link"), new_referral_path(:referee_id => correct_user(@user)), :"data-id" => @user.id, :"data-user-type" => "referee" %>
+    <%= link_to content_tag(:div, "Received Referral", class: "actions refer_link"), new_referral_path(:target_id => correct_user(@user)), :"data-id" => @user.id, :"data-user-type" => "target" %>
+</div> 
