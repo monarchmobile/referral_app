@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :social_networks,:dependent => :destroy
   has_many :affiliations,:dependent => :destroy
   has_many :addresses,:dependent => :destroy
-  has_many :phone_numbers,:dependent => :destroy
+  has_many :phone_numbers,:dependent => :destroy 
   has_many :emails,:dependent => :destroy
 
   # contact_list
