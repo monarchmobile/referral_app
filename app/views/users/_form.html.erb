@@ -1,7 +1,6 @@
 <%= form_for @user, validate: true do |f| %>
   <%= render 'shared/errors', object: @user %> 
  
-
   <% if @new_contact %>
     <%= f.hidden_field :guest, value: true %>
     <p>This person will be added to your contact list </p>
