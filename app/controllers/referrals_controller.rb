@@ -98,7 +98,7 @@ class ReferralsController < ApplicationController
 
   def lead_params
     if params[:referee_id]
-      @referee_id = params[:referee_id] 
+      @referee_id = params[:referee_id] || 1
       @referee = User.find(@referee_id)
       @starts_with = 1
     end

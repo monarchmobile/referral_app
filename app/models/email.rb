@@ -4,5 +4,5 @@ class Email < ActiveRecord::Base
   belongs_to :user
 
   validates :email,
-    :presence => true
+    :presence => { message: "Can't be blank" }
 end

@@ -18,11 +18,26 @@
   <% end %>
 
   <div class="field">
-  	<%= f.label :company %>
+    <%= f.fields_for :phone_numbers do |builder| %>
+      <%= builder.label :number, "Phone Number" %><%= required_field %>
+      <%= builder.text_field :number %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.fields_for :emails do |builder| %>
+      <%= builder.label :email, "Email" %><%= required_field %>
+      <%= builder.text_field :email %>
+    <% end %>
+  </div>
+
+    
+
+  <div class="field">
+  	<%= f.label :company %><%= required_field %>
   	<%= f.text_field :company %>
   </div>
   <div class="field">
-	  <%= f.label :biz_type, "Business Type" %> <br />
+	  <%= f.label :biz_type, "Business Type" %><%= required_field %><br />
 	  <%= f.collection_select :biz_type_id, BizType.find(:all), :id, :category, :prompt => "Please choose a business category" %><%= required_field %>
   </div>
 
@@ -32,30 +47,9 @@
   </div>
 
   <ul class="nested_models">
-    <%= f.fields_for :social_networks do |builder| %>
-    	<%= render 'social_network_fields', f: builder %>
-    <% end %><br />
-    <%= link_to_add_fields "Add network", f, :social_networks %><br />
+    
 
-    <%= f.fields_for :affiliations do |builder| %>
-      <%= render 'affiliation_fields', f: builder %>
-    <% end %><br />
-    <%= link_to_add_fields "Add affiliation", f, :affiliations %><br />
-
-    <%= f.fields_for :addresses do |builder| %>
-      <%= render 'address_fields', f: builder %>
-    <% end %><br />
-    <%= link_to_add_fields "Add address", f, :addresses %><br />
-
-    <%= f.fields_for :phone_numbers do |builder| %>
-      <%= render 'phone_number_fields', f: builder %>
-    <% end %><br />
-    <%= link_to_add_fields "Add phone_number", f, :phone_numbers %><br />
-
-    <%= f.fields_for :emails do |builder| %>
-      <%= render 'email_fields', f: builder %>
-    <% end %><br />
-    <%= link_to_add_fields "Add email", f, :emails %><br />
+    
   </ul>
   <div class='actions submit_btn2'>
     <%= f.submit %>
