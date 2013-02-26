@@ -40,7 +40,7 @@ body {
 }
 .menu_items {
 
-  h2 {
+  h2, h3 {
     
     background: #4aaecf;
     background: -webkit-linear-gradient(top,  #4aaecf 0%, #005c7a 100%);
@@ -96,9 +96,9 @@ body {
   clear: both;
   img{
     float: left;
-    margin: 5px 2%;
+    margin: 15px 2%;
   }
-  h3{
+  h4{
     padding-top: 10px;
   }
   a {
@@ -191,8 +191,25 @@ ul.address_info {
 
 .contact_page {
   background: $lblue;
-  min-height: 200px;
-  padding-top: 10px;
+  padding: 10px 0px;
+  border-radius: 10px;
+  width:90%;
+  margin:0px 5% 10px;
+  img {
+    margin-left:3%;
+    float:left;
+    margin-bottom: 15px;
+  }
+  h4 {
+    width:75%;
+    float: left;
+    text-align: center;
+  }
+  li {
+    clear:both;
+    margin:10px 0px 10px 10%;
+    list-style: none;
+  }
 
   .info_container {
     background:gray;
