@@ -12,7 +12,7 @@ class UserMailer < ActionMailer::Base
   	  @referee = @referral.referee
   	  @target = @referral.target
   	 
-  	  mail :to => @referee.email, :subject => "This is a referral"
+  	  mail :to => @referee.emails.first.email, :subject => "This is a referral"
   end
 
   def send_referral_to_target(referral)
@@ -21,7 +21,7 @@ class UserMailer < ActionMailer::Base
       @referee = @referral.referee
       @target = @referral.target
      
-      mail :to => @target.email, :subject => "This is a referral"
+      mail :to => @target.emails.first.email, :subject => "This is a referral"
   end
 
 end

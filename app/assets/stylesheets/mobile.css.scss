@@ -39,8 +39,11 @@ body {
   }
 }
 .menu_items {
+  h3 a{
+    color:white;
+  }
 
-  h2 {
+  h2, h3 {
     
     background: #4aaecf;
     background: -webkit-linear-gradient(top,  #4aaecf 0%, #005c7a 100%);
