@@ -4,29 +4,36 @@
     <%= content_tag :h2, "Referral Slip" %>
     <%= content_tag :li, "Date #{sent_or_received(@referral, current_user)}: #{@referral.created_at.strftime("%B %d, %Y")}" %>
     <%= content_tag :li, "From: #{@referral.referrer.fullname}" %>
-   
+    <%= content_tag :li, "To: #{@referral.referee.fullname}" %>
     <h2>Referee info </h2>
-     <%= content_tag :li, "To: #{@referral.referee.fullname}" %>
-    <%= content_tag :li, "call_by: #{@referral.note.r_urgency}" %>
-    <%= content_tag :li, "comments: #{@referral.note.r_comments}" %>
-    <%= content_tag :li, "card given(yes/no): #{@referral.note.r_card_given}" %>
-    <%= content_tag :li, "preferred contact(call/email): #{@referral.note.r_preferred_contact}" %>
-    <%= render 'referrals/show/referral_participant_info', referral: @referral, participant: @referral.referee %>
+    <%= render 'referral_participant_info' %>
 
     <h2>Target info </h2>
-    <%= content_tag :li, "Target: #{@referral.target.first_name}" %>
+    <%= content_tag :li, "Target: #{@referral.target.first_name}" %> 
     <%= content_tag :li, "call_by: #{@referral.note.t_urgency}" %>
     <%= content_tag :li, "comments: #{@referral.note.t_comments}" %>
     <%= content_tag :li, "card given(yes/no): #{@referral.note.t_card_given}" %>
     <%= content_tag :li, "preferred contact(call/email): #{@referral.note.t_preferred_contact}" %>
-     
-    <%= render 'referrals/show/referral_participant_info', referral: @referral, participant: @referral.target %>
+
+    <% @referral.target.addresses.each do |add| %>
+        <%= content_tag :li, "#{add.address1}" if add.address1 %>
+        <%= content_tag :li, "#{add.address2}" if add.address2  %>
+        <%= content_tag :li, "#{add.city}, #{add.state}" if @referral.city %>
+    <% end %>
+
+    <% @referral.target.phone_numbers.each do |num| %>
+        <%= content_tag :li, "#{num.number} - #{num.phone_type}" if num.number %>
+    <% end %>
+
+    <% @referral.target.emails.each do |email| %>
+        <li>Email: <%= mail_to email.email, email.email if email.email %></li>
+    <% end %>
+    
     <%= content_tag :li, "Comments: #{@referral.comments}" %>
     
   </ul> 
   <br class="clear" />
 </div>
-
 <h3>edit link</h3>
 <%= link_to "Edit", edit_referral_path(@referral) %>
 <h3>submit link</h3>

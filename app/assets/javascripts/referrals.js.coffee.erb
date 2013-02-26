@@ -2,6 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery -> 
+	$(".refer_link").click ->
+		allData = $(this).data()
+		user_id = allData["id"]
+		user_type = allData["user-type"]
+		$("#"+user_type+"_"+user_id).gray_out()
+
 	$.fn.gray_out = ->
 		$(this).removeClass("grayed_out")
 		$(this).siblings().not("p").addClass("grayed_out")

@@ -1,0 +1,15 @@
+
+
+<% participant.addresses.each do |add| %>
+    <%= content_tag :li, "Add1: #{add.address1}" if add.address1 %>
+    <%= content_tag :li, "Add2: #{add.address2}" if add.address2  %>
+    <%= content_tag :li, "#{add.city}, #{add.state}" if add.city %>
+<% end %>
+
+<% participant.phone_numbers.each do |num| %>
+    <%= content_tag :li, "number: #{num.number} - #{num.phone_type}" if num.number %>
+<% end %>
+
+<% participant.emails.each do |email| %>
+    <li>Email: <%= mail_to email.email, email.email if email.email %></li>
+<% end %>

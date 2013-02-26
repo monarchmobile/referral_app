@@ -60,8 +60,8 @@ class User < ActiveRecord::Base
   include ActiveModel::SecurePassword::InstanceMethodsOnActivation
 
   # pretty url
-  extend FriendlyId
-  friendly_id :last_name
+  # extend FriendlyId
+  # friendly_id :last_name
 
   def send_password_reset
     generate_token(:password_reset_token)
