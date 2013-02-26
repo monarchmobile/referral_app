@@ -1,30 +1,34 @@
 <div class="referral_slip"> 
-  <div class="close_btn" data-page="on_page">close</div>
-  <ul>
-    <%= content_tag :h2, "Referral Slip" %>
-    <%= content_tag :li, "Date #{sent_or_received(@referral, current_user)}: #{@referral.created_at.strftime("%B %d, %Y")}" %>
-    <%= content_tag :li, "From: #{@referral.referrer.fullname}" %>
-   
-    <h2>Referee info </h2>
-     <%= content_tag :li, "To: #{@referral.referee.fullname}" %>
-    <%= content_tag :li, "call_by: #{@referral.note.r_urgency}" %>
-    <%= content_tag :li, "comments: #{@referral.note.r_comments}" %>
-    <%= content_tag :li, "card given(yes/no): #{@referral.note.r_card_given}" %>
-    <%= content_tag :li, "preferred contact(call/email): #{@referral.note.r_preferred_contact}" %>
-    <%= render 'referrals/show/referral_participant_info', referral: @referral, participant: @referral.referee %>
+  <%= content_tag :h2, "Just to Confirm..." %>
 
-    <h2>Target info </h2>
-    <%= content_tag :li, "Target: #{@referral.target.first_name}" %>
-    <%= content_tag :li, "call_by: #{@referral.note.t_urgency}" %>
-    <%= content_tag :li, "comments: #{@referral.note.t_comments}" %>
+  <ul class="referee_slip">
+<!--     <%= content_tag :li, "Date #{sent_or_received(@referral, current_user)}: #{@referral.created_at.strftime("%B %d, %Y")}" %>
+    <%= content_tag :li, "From: #{@referral.referrer.fullname}" %> -->
+    <%= content_tag :h3, "#{@referral.referee.fullname} will receive the following referral:" %>
+    <li>Hello <%= "#{@referral.referee.first_name}"%>, I am referring <%= "#{@referral.target.fullname}"%> to you.</li>
+    <%= content_tag :li, "card given(yes/no): #{@referral.note.r_card_given}" %>
+    <%= content_tag :li, "Here is a little bit more detail: #{@referral.note.r_comments}" %>
+    <%= content_tag :li, "I would recommend that you make contact within the #{@referral.note.r_urgency}" %>
+    <%= content_tag :li, "They would prefer to be contacted by #{@referral.note.r_preferred_contact} at..." %>
+    <li>You can view more information about <%= "#{@referral.target.fullname}"%> at the following link: <a href="">put link here</a></li>
+
+  </ul>
+  <ul class="target_slip">
+    <%= content_tag :h3, "#{@referral.target.first_name} will receive the following referral:" %>
+    <li>Hello <%= "#{@referral.target.first_name}"%>, I am referring <%= "#{@referral.referee.fullname}"%>  to you.</li>
     <%= content_tag :li, "card given(yes/no): #{@referral.note.t_card_given}" %>
-    <%= content_tag :li, "preferred contact(call/email): #{@referral.note.t_preferred_contact}" %>
-     
-    <%= render 'referrals/show/referral_participant_info', referral: @referral, participant: @referral.target %>
-    <%= content_tag :li, "Comments: #{@referral.comments}" %>
-    
+    <%= content_tag :li, "Here is a little bit more detail: #{@referral.note.t_comments}" %>
+    <%= content_tag :li, "I would recommend that you make contact within the #{@referral.note.t_urgency}" %>
+    <%= content_tag :li, "They would prefer to be contacted by #{@referral.note.t_preferred_contact} at ..." %>
+    <li>You can view more information about <%= "#{@referral.referee.fullname}"%> at the following link: <a href="">put link here</a></li>
   </ul> 
   <br class="clear" />
+</div>
+
+<div class="ref_field">
+  <div class="submit_btn2">Send</div>
+  <div class="edit_btn2">Edit</div>
+  <div class="cancel_btn2">Cancel</div>
 </div>
 
 <h3>edit link</h3>
@@ -32,4 +36,3 @@
 <h3>submit link</h3>
 <p>Confirm that the info is correct and then submit</p>
 <%= link_to "Send introduction", send_referral_path(@referral) %>
-
