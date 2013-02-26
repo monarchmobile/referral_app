@@ -93,7 +93,7 @@ class ReferralsController < ApplicationController
   end
 
   def create_lead_relationship(referee_id, referral, target_id)
-    Lead.create!(referrer_id: current_user, referee_id: referee_id, referral_id: referral.id, target_id: target_id)
+    Lead.create!(referrer_id: current_user.id, referee_id: referee_id, referral_id: referral.id, target_id: target_id)
   end
 
   def lead_params
