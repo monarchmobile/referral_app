@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224171559) do
+ActiveRecord::Schema.define(:version => 20130226135922) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address1"
@@ -91,24 +91,11 @@ ActiveRecord::Schema.define(:version => 20130224171559) do
   end
 
   create_table "referrals", :force => true do |t|
-    t.string   "urgency"
     t.date     "date_submitted"
     t.boolean  "inside"
-    t.boolean  "card_given"
-    t.string   "preferred_contact"
     t.text     "comments"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "phone1"
-    t.string   "phone2"
-    t.string   "address1"
-    t.string   "address2"
-    t.string   "city"
-    t.string   "state"
-    t.date     "contact_by"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.date     "warm_up_by"
   end
 
