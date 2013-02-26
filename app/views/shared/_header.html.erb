@@ -36,6 +36,7 @@
             <% current_user.associates.each do |contact| %>
                 <div class="<%= cycle('odd', 'even') %> contact_list_member">
                   <%= render'shared/contact_image', contact: contact %>
+                  <br class="clear"/>
                 </div>
             <% end %>
           <% end %>
