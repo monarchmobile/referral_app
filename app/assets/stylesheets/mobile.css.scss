@@ -1,3 +1,5 @@
+$lblue: #47ABCC;
+
 body {
   width: 300px;
   background: url(blue-back.jpg) repeat;
@@ -102,7 +104,7 @@ ul.contact_profile {
   li {
     float:left;
     height:75px;
-    width:60%;
+    width:77%;
     list-style: none; 
   }
 
@@ -117,18 +119,25 @@ ul.contact_profile {
 // container for name phone email
 ul.contact_info {
     min-height: 50px;
-    width: 204px;
+    width: 100%;
     margin: 0px;
     padding:0px;
     margin-left: 10px;
     height: auto;
 
+    li.full_name {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      width: 100%;
+    }
+
     a, a li, li {
       float: none;
-      width: 200px;
+      width: 100%;
       margin: 0px;
       padding: 0px;
-      height: 23px;
+      height: auto;
       text-align:left;
       display: block;
     }
@@ -140,20 +149,17 @@ ul.contact_info {
 }
 
 ul.address_info {
-    min-height: 50px;
-    width: 204px;
-    margin: 0px;
-    padding:0px;
-    margin-left: -25px;
     height: auto;
+    margin: 10px 3%;
+    padding: 0;
+    width: 100%;
 
     li {
       float: none;
-      width: 200px;
+      width: 100%;
       margin: 0px;
-      margin-left:67px;
       padding: 2px;
-      height: 18px;
+      height: auto;
       text-align: left;
       display: block;
       color:black;
@@ -161,7 +167,7 @@ ul.address_info {
 }
 
 .contact_page {
-  background: #fff;
+  background: $lblue;
   min-height: 200px;
   padding-top: 10px;
 
