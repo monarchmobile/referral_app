@@ -713,6 +713,10 @@ border-radius: 10px 10px 10px 10px;
 	text-align: center;
 	width: 90%;
 	cursor: pointer;
+	a {
+		color: white;
+		display: block;
+	}
 }
 
 .edit_btn2 {
@@ -729,10 +733,14 @@ background-image:-ms-linear-gradient(top, #742A05 0%, #EC550A 50%,#742A05 100%);
 	border-radius: 10px 10px 10px 10px;
 	color: white;
 	font-size: 20px;
-	margin: 5%;
+	margin: 3%;
 	padding: 2%;
 	text-align: center;
 	width: 90%;
+	a{
+		display: block;
+		color: white;
+	}
 }
 
 .cancel_btn2 {
@@ -748,8 +756,12 @@ background-image:-ms-linear-gradient(top, #550101 0%, #AB0303 50%,#550101 100%);
 	border-radius: 10px 10px 10px 10px;
 	color: white;
 	font-size: 20px;
-	margin: 5%;
+	margin: 3%;
 	padding: 2%;
 	text-align: center;
 	width: 90%;
+	a {
+		color:white;
+		display: block;
+	}
 }
