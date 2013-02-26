@@ -91,16 +91,13 @@ div {
 } 
 
 .andrew {
-    padding:15px;
-    color:#E97272;
-    -moz-box-shadow:    0px 0px 5px #3C4458;;
-    -webkit-box-shadow: 0px 0px 5px #3C4458;;
-    box-shadow:         0px 0px 5px #3C4458;;
-    width:300px;
-    
-    margin-top:5px;
-    background:#F38C8C;
-    color:white;
+    -webkit-box-shadow:         0px 0px 5px #3C4458;
+  box-shadow:         0px 0px 5px #3C4458;
+  ;
+  width:300px;
+  margin-top:5px;
+  background:#F38C8C;
+  color:white;
 }
 
 .collection_submit {
@@ -110,11 +107,7 @@ div {
 }
 
 .submit_btn {
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -moz-box-shadow:    0px 0px 5px #ccc;
-  -webkit-box-shadow: 0px 0px 5px #ccc;
+  -webkit-box-shadow:         0px 0px 5px #ccc;
   box-shadow:         0px 0px 5px #ccc;
   text-align: center;
   height:30px;
