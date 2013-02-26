@@ -46,6 +46,7 @@ body {
     border-bottom: 3px groove #008DBB;
     text-shadow: 0 -1px 0 black;
     font-size: 16px;
+    padding: 10px 0 4px;
   }
   &:hover{
     background: -moz-linear-gradient(top,  #005c7a 0%, #4aaecf 100%); /* FF3.6+ */
@@ -94,8 +95,9 @@ color: black;
 ul.contact_profile {
   width: 100%;
   height: 75px;
-  margin: 0px 0px 0px 25px;
+  margin: 0px;
   padding: 10px 0px 0px 0px;
+  overflow: hidden;
 
   li {
     float:left;
@@ -106,7 +108,7 @@ ul.contact_profile {
 
   img {
     float:left;
-    margin-left:-20px;
+    margin-left:3%;
     box-shadow: 0px 0px 5px gray;
     margin-top:5px;
   }
@@ -183,10 +185,15 @@ ul.address_info {
 
 .send_info {
   p{
+    border-radius: 10px 10px 10px 10px;
     color: white;
-    font-size: 20px;
-    text-shadow: 0px 0px 5px black;
+    font-size: 16px;
+    height: 60px;
+    margin: 0 0 -36px 4%;
+    padding: 5px 1%;
     text-align: center;
-    margin-bottom: 10px;
+    text-shadow: 0 0 2px black;
+    width: 90%;
+    font-weight: bold;
   }
 }
