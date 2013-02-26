@@ -21,7 +21,7 @@
   	<%= f.text_field :company %>
   </div>
   <div class="field">
-	  <%= f.label :biz_type, "Please choose a business category" %> <br />
+	  <%= f.label :biz_type, "Business Type" %> <br />
 	  <%= f.collection_select :biz_type_id, BizType.find(:all), :id, :category, :prompt => "Please choose a business category" %><%= required_field %>
   </div>
 

@@ -1,3 +1,5 @@
+$lblue: #47ABCC;
+
 body {
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
@@ -109,8 +111,8 @@ div {
 
 .submit_btn {
   border-radius: 10px;
-  webkit-border-radius: 10px;
-  moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
   -moz-box-shadow:    0px 0px 5px #ccc;
   -webkit-box-shadow: 0px 0px 5px #ccc;
   box-shadow:         0px 0px 5px #ccc;
@@ -120,4 +122,28 @@ div {
   padding:5px;
 }
 
+#new_user {
+  width:90%;
+  padding:2%;
+  margin: 3%;
+  background-color: $lblue;
+  border-radius: 10px;
+}
 
+.field {
+  background: url("black-back.jpg") repeat scroll 0 0 transparent;
+  border-radius: 5px 5px 5px 5px;
+  margin: auto;
+  padding: 2%;
+  width: 90%;
+  label {
+    font-size: 14px;
+    color:white;
+  }
+  input, select {
+    margin:5px 2%;
+    border-radius: 5px;
+    width:96%;
+    font-size: 14px;
+  }
+}
