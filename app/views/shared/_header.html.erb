@@ -1,14 +1,18 @@
 <div class="header full">
   <div id="logo"><%=image_tag "header.png", alt:"logo" %> </div>
-<!--   <div class="header_links_container">
-      <% if current_user %>    
-            <%= link_to content_tag(:li, "Learn More"), about_path %>      
-      <% else %>
-            <%= link_to content_tag(:li, "Sign Up"), signup_path %>
-            <%= link_to content_tag(:li, "Learn More"), about_path %>
-            <%= link_to content_tag(:li, "Sign Inn"), login_path %>
+  
+
+    <div class="menu_items">
+      <% if !current_user %>  
+            <%= content_tag :h3, link_to("Sign Up", signup_path), class: "full" %>
+            <%= content_tag :h3, link_to("Learn More", about_path), class: "full" %> 
+            <%= content_tag :h3, link_to("Sign In", login_path), class: "full" %>   
+            
+            
+
       <% end %>
-  </div> -->
+    </div>
+  
     <% if current_user %>
       <div class="menu_accordian">Menu</div>
       <div class="menu_items hide">
