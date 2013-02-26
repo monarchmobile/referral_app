@@ -115,12 +115,21 @@ div {
   padding:5px;
 }
 
-#new_user {
+#new_user, #home_text {
   width:90%;
   padding:2%;
   margin: 3%;
   background-color: $lblue;
   border-radius: 10px;
+}
+
+#home_text p {
+  color: white;
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 5px 0;
+  padding: 5px;
+  text-shadow: 0 0 2px black;
 }
 
 .field {
@@ -141,4 +150,7 @@ div {
   }
 }
 
-
+ul.nested_models {
+  padding:0px;
+  list-style-type: none;
+}

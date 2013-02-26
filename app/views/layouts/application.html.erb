@@ -7,10 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="logo"><%=image_tag "header.png", alt:"logo" %> </div>
 	<div id="dashboard"> 
-		<%= render 'shared/header' %>
+		
 		<%= yield %>
 		
+		<%= render 'shared/header' %>
+
 	</div>
 
 </body>
