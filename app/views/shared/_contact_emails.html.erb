@@ -1,0 +1,22 @@
+<ul class="contact_profile"> 
+  <%= link_to image_tag("blank.jpg", size:"50x50"), user_path(contact) %>
+  <li>
+    <ul class="contact_info">
+    <%= link_to content_tag(:li, contact.fullname), user_path(contact) %>
+    <% if contact.phone_numbers.count > 0 %>
+      <% contact.phone_numbers.each do |phone| %>
+        <li><%= phone.number %> <%= phone.phone_type %></li>
+      <% end %>
+    <% end %>
+
+    <%= mail_to contact.email if contact.email %>
+    <% if contact.emails.count > 0 %>
+      <% contact.emails.each do |email| %>
+        <li><%= email.email %></li>
+      <% end %>
+    <% end %>
+    </ul>
+  </li>
+</ul>
+
+

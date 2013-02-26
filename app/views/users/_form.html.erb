@@ -16,10 +16,6 @@
     <%= render('shared/authentication', f: f) if @user.new_record? %>
   <% end %>
 
-  <div class="field"> 
-    <%= f.label :email %><%= required_field %><br /> 
-    <%= f.text_field :email %>
-  </div>
   <div class="field">
   	<%= f.label :company %>
   	<%= f.text_field :company %>
