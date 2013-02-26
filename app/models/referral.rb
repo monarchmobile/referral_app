@@ -1,7 +1,6 @@
 class Referral < ActiveRecord::Base
-  attr_accessible :card_given, :comments, :date_submitted, :inside, :preferred_contact, :urgency, :contact_by, :warm_up_by
-  attr_accessible :first_name, :last_name, :fullname, :email, :phone1, :phone2
-  attr_accessible :address1, :address2, :city, :state, :note_attributes
+  attr_accessible :comments, :date_submitted, :inside, :warm_up_by
+  attr_accessible :note_attributes
 
   has_one :lead
   has_one :referrer, through: :lead 
@@ -32,7 +31,4 @@ class Referral < ActiveRecord::Base
   	self.first_name = split[0]
   	self.last_name = split[1]
   end
-
-  
- 
 end
