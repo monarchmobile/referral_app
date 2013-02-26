@@ -9,7 +9,27 @@
   
     <% if current_user %>
       <div class="menu_accordian">Menu</div>
+
       <div class="menu_items hide">
+
+        <h2 class="full">Contacts</h2>
+          <div class="section full">
+            <%= render'shared/search_for_users' %>
+            <%= render'shared/add_a_contact' %>
+            <% if current_user %>
+              <% current_user.associates.each do |contact| %>
+                  <div class="<%= cycle('odd', 'even') %> contact_list_member">
+                    <%= render'shared/contact_image', contact: contact %>
+                    <br class="clear"/>
+                  </div>
+              <% end %>
+            <% end %>
+            <br class="clear"/>
+
+          </div>
+        
+        <%= link_to content_tag(:h3, "Send a Referral", class: "full"), home_path %>
+
         <h2 class="full">Today</h2>
         <div class="section full">
           <%= render'shared/today' %>
@@ -26,21 +46,7 @@
         <div class="section full">
           <%= render'shared/year' %>
         </div>
-        <h2 class="full">Contacts</h2>
-        <div class="section full">
-          <%= render'shared/search_for_users' %>
-          <%= render'shared/add_a_contact' %>
-          <% if current_user %>
-            <% current_user.associates.each do |contact| %>
-                <div class="<%= cycle('odd', 'even') %> contact_list_member">
-                  <%= render'shared/contact_image', contact: contact %>
-                  <br class="clear"/>
-                </div>
-            <% end %>
-          <% end %>
-          <br class="clear"/>
-
-        </div>
+        
         <h2 class="full">History</h2>
         <div class="section full">
           blah blah blah balah
