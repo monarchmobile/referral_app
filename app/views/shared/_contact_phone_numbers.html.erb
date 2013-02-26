@@ -1,0 +1,8 @@
+
+<% if contact.phone_numbers.count > 0 %>
+  <% contact.phone_numbers.each do |phone| %>
+    <li><%= phone.number %> <%= phone.phone_type %></li>
+  <% end %>
+<% end %>
+
+    

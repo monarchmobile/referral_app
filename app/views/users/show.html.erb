@@ -2,10 +2,18 @@
   <%= render'shared/notifications' %>
   <div class="contact_page">
     
-
-    <div class="info_container">
-      <%= render'shared/contact_info', contact: @user %>
-      <%= render'shared/contact_address', contact: @user %>
+	<!-- <ul class="contact_profile"> 
+	  
+	  <li>
+	    <ul class="contact_info"> -->
+    <!-- <div class="info_container"> -->
+      <%= render'shared/contact_image', contact: @user %>
+      <%= render'shared/contact_phone_numbers', contact: @user %>
+      <%= render'shared/contact_emails', contact: @user %>
+      <%= render'shared/contact_addresses', contact: @user %>
+     <!--  </ul>
+  </li>
+</ul> -->
     </div>
 
       
