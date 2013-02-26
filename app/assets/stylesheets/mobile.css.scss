@@ -43,7 +43,12 @@ body {
   h2 {
     
     background: #4aaecf;
-    background: -moz-linear-gradient(top,  #4aaecf 0%, #005c7a 100%); /* FF3.6+ */
+    background: -webkit-linear-gradient(top,  #4aaecf 0%, #005c7a 100%);
+    background: -moz-linear-gradient(top,  #4aaecf 0%, #005c7a 100%);
+    background: -o-linear-gradient(top,  #4aaecf 0%, #005c7a 100%);
+    background: -ms-linear-gradient(top,  #4aaecf 0%, #005c7a 100%);
+    background: linear-gradient(top,  #4aaecf 0%, #005c7a 100%);
+    /* FF3.6+ */
     cursor:pointer;
     border-bottom: 3px groove #008DBB;
     text-shadow: 0 -1px 0 black;
@@ -51,7 +56,12 @@ body {
     padding: 10px 0 4px;
   }
   &:hover{
-    background: -moz-linear-gradient(top,  #005c7a 0%, #4aaecf 100%); /* FF3.6+ */
+    background: -webkit-linear-gradient(top,  #005c7a 0%, #4aaecf 100%);
+    background: -moz-linear-gradient(top,  #005c7a 0%, #4aaecf 100%);
+    background: -o-linear-gradient(top,  #005c7a 0%, #4aaecf 100%);
+    background: -ms-linear-gradient(top,  #005c7a 0%, #4aaecf 100%);
+    background: linear-gradient(top,  #005c7a 0%, #4aaecf 100%);
+    /* FF3.6+ */
 
   }
   .section {
