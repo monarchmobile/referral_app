@@ -4,18 +4,22 @@
 <%= form_for(@referral) do |f| %>
   <%= render 'shared/errors', object: @referral %>
 
-  <div id="member_section1">
+  <div id="member_section1" class="blue-back">
+    <div class="new_referral_message">
+      <h2>Connecting:</h2>
+    </div>
     <div class="participants">
       
       <%= render 'referrals/form/referee_index' %>
       
       <%= render 'referrals/form/target_index' %>
-
+      <br class="clear"/>
     </div>
+    <br class="clear"/>  
   </div>
 
   <div class="send_info">
-    <p>Send information to</p>
+    <p>Send information to:</p>
     <%= content_tag :div, referee_name(@referee), class: "members giver chosen_referee_id left_button",  :"data-member" => "giver" %>
     <%= content_tag :div, target_name(@target), class: "members receiver chosen_target_id", :"data-member" => "receiver"%>
     <br class="clear">

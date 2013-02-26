@@ -1,5 +1,5 @@
 <div class="receiver participant <%= highlight(@starts_with, 2) %>">
-  <p>Choose a target</p>
+  <!-- <p>Choose a target</p> -->
   <% @users.each do |user| %>
     <%= render 'target_container', user: user %>
   <% end %>

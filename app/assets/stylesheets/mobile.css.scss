@@ -12,7 +12,6 @@ body {
 .full {
   margin: 0px 0px 0px 0px;
   padding: 0px;
-  padding-top: 13px;
   text-align: center;
   width: 100%;
   color: #fff;
@@ -179,5 +178,15 @@ ul.address_info {
   &:hover {
     text-decoration: underline;
     color:blue;
+  }
+}
+
+.send_info {
+  p{
+    color: white;
+    font-size: 20px;
+    text-shadow: 0px 0px 5px black;
+    text-align: center;
+    margin-bottom: 10px;
   }
 }
