@@ -51,19 +51,22 @@
         <div class="section full">
           <h3>Received Referrals </h3>
           <% received_referrals = current_user.received_referrals %>
-          <% received_referrals.each do |rec| %>
-            <%= rec.target.fullname %><br />
-            Contact_by: <%= rec.note.r_urgency %> <br />
-            Comments: <%= rec.note.r_comments %> <br />
-            Card Given:<%= rec.note.r_card_given %> <br />
-            This person would prefer to be contacted by <%= rec.note.r_preferred_contact %> <br />
+          <% received_referrals.each do |r| %>
+            <%= r.target.fullname %><br />
+            Contact_by: <%= r.note.r_urgency %> <br />
+            Comments: <%= r.note.r_comments %> <br />
+            Card Given:<%= r.note.r_card_given %> <br />
+            This person would prefer to be contacted by <%= r.note.r_preferred_contact %> <br />
+          <% end %>
             -------------
           <h3>Sent Referrals </h3>
           <% sent_referrals = current_user.sent_referrals %>
-          <% sent_referrals.each do |sent| %>
-            
-          <% end %>
-            
+          <% sent_referrals.each do |r| %>
+            <%= r.referrer.fullname %><br />
+            Contact_by: <%= r.note.t_urgency %> <br />
+            Comments: <%= r.note.t_comments %> <br />
+            Card Given:<%= r.note.t_card_given %> <br />
+            This person would prefer to be contacted by <%= r.note.t_preferred_contact %> <br />
 
           <% end %>
         </div>
