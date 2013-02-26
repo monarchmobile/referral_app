@@ -38,7 +38,7 @@
   </div>
   <div class="field">
 	  <%= f.label :biz_type, "Business Type" %><%= required_field %><br />
-	  <%= f.collection_select :biz_type_id, BizType.find(:all), :id, :category, :prompt => "Please choose a business category" %><%= required_field %>
+	  <%= f.collection_select :biz_type_id, BizType.find(:all), :id, :category, :prompt => "Please choose a business category" %>
   </div>
 
   <div class="field">
