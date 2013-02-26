@@ -24,6 +24,8 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @new_contact = params[:guest]
+    @user.phone_numbers.build
+    @user.emails.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
