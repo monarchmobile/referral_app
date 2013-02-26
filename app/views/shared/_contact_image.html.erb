@@ -1,2 +1,2 @@
 <%= link_to image_tag("blank.jpg", size:"50x50"), user_path(contact) %>
-<%= link_to content_tag(:li, contact.fullname), user_path(contact) %>
+<%= content_tag :h3, contact.fullname %>
