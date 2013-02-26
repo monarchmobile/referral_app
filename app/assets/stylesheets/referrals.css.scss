@@ -286,7 +286,7 @@ height: 21px;
 		li:nth-child(1) {
 			background: red;
 			background: -moz-linear-gradient(top,  #550101 0%, #ab0303 50%, #550101 100%); /* FF3.6+ */
-
+			background: -webkit-moz-linear-gradient(top,  #550101 0%, #ab0303 50%, #550101 100%); /* FF3.6+ */
 			&:hover {
 				background:gray;
 
@@ -297,16 +297,16 @@ height: 21px;
 		li:nth-child(2) {
 			background: #ec550a;
 			background: -moz-linear-gradient(top,  #742a05 0%, #ec550a 50%, #742a05 100%); /* FF3.6+ */
+			background: -webkit-linear-gradient(top,  #742a05 0%, #ec550a 50%, #742a05 100%); /* FF3.6+ */
 			&:hover {
 				background:gray;
-
-
 			}
 		}
 
 		li:nth-child(3) {
 			background: #f9eb03;
 			background: -moz-linear-gradient(top,  #7a7301 0%, #f9eb03 50%, #7a7301 100%); /* FF3.6+ */
+			background: -webkit-linear-gradient(top,  #7a7301 0%, #f9eb03 50%, #7a7301 100%); /* FF3.6+ */
 			&:hover {
 				background:gray;
 			}
@@ -315,11 +315,11 @@ height: 21px;
 		li:nth-child(4) {
 			background: #3aa111;
 			background: -moz-linear-gradient(top,  #1c4f08 0%, #3aa111 50%, #1c4f08 100%); /* FF3.6+ */
+			background: -webkit-linear-gradient(top,  #1c4f08 0%, #3aa111 50%, #1c4f08 100%); /* FF3.6+ */
 			&:hover {
 				background:gray;
 			}
 		}
-
 
 	}
 
@@ -342,8 +342,6 @@ height: 21px;
     	width: 97%;
     	border-radius: 5px;
 	}
-
-
 }
 
 .lead_card_given {

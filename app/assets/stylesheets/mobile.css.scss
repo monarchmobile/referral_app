@@ -1,7 +1,7 @@
 $lblue: #47ABCC;
 
 body {
-  width: 300px;
+  width: 100%;
   background: url(blue-back.jpg) repeat;
 
 }
@@ -9,6 +9,11 @@ body {
 #dashboard {
   width:100%;
   height:auto;  
+}
+
+#logo {
+  width:100%;
+  height: auto;
 }
 
 .full {
