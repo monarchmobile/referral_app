@@ -284,14 +284,12 @@ height: 21px;
 		}
 
 		li:nth-child(1) {
-			background: red;
+			background: #ab0303;
 			background: -moz-linear-gradient(top,  #550101 0%, #ab0303 50%, #550101 100%); /* FF3.6+ */
-			background: -webkit-moz-linear-gradient(top,  #550101 0%, #ab0303 50%, #550101 100%); /* FF3.6+ */
+			background: -webkit-linear-gradient(top,  #550101 0%, #ab0303 50%, #550101 100%); /* FF3.6+ */
 			&:hover {
 				background:gray;
-
 			}
-
 		}
 
 		li:nth-child(2) {
@@ -384,6 +382,7 @@ height: 21px;
 		li:nth-child(2) {
 			background: #ab0303;
 			background: -moz-linear-gradient(top,  #550101 0%, #ab0303 50%, #550101 100%); /* FF3.6+ */
+			background: -webkit-linear-gradient(top,  #550101 0%, #ab0303 50%, #550101 100%); /* FF3.6+ */
 
 			&:hover {
 				background:gray;
@@ -395,6 +394,7 @@ height: 21px;
 		li:nth-child(1) {
 			background: #3aa111;
 			background: -moz-linear-gradient(top,  #1c4f08 0%, #3aa111 50%, #1c4f08 100%); /* FF3.6+ */
+			background: -webkit-linear-gradient(top,  #1c4f08 0%, #3aa111 50%, #1c4f08 100%); /* FF3.6+ */
 			&:hover {
 				background:gray;
 				border:1px solid green;
